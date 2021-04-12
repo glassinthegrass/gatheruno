@@ -11,9 +11,9 @@ module.exports = {
 
     addPerson: (req, res) => {
         const db = req.app.get('db');
-        const { first_name,last_name,email,birthday,picture,group_id } = req.body;
+        const { first_name,last_name,email,birthday,picture,zipcode, message} = req.body;
 
-        db.add_person(first_name,last_name,email,birthday,picture,group_id)
+        db.add_person(first_name,last_name,email,birthday,picture,zipcode,message)
             .then(dbRes => {
                 res.status(200).send(dbRes)
             })
@@ -22,9 +22,9 @@ module.exports = {
     updatePerson: (req,res) => {
         const db = req.app.get('db');
         const {id} =req.params
-        const {first_name,last_name,email,birthday,picture,group_id}= req.body;
+        const {first_name,last_name,email,birthday,picture,zipcode,message}= req.body;
 
-        db.update_person(id,first_name,last_name,email,birthday,picture,group_id)
+        db.update_person(id,first_name,last_name,email,birthday,picture,zipcode,message)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))

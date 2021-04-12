@@ -1,2 +1,1 @@
-SELECT * FROM person
-where birthday = CURRENT_DATE;
+SELECT * FROM person;

@@ -5,6 +5,5 @@ last_name = $3,
 email = $4,
 birthday = $5,
 picture = $6,
-group_id =$7
-WHERE person_id = $1
-returning *;
+zipcode=$7
+WHERE person_id = $1;
