@@ -4,10 +4,12 @@ import './Birthday.css'
 
 class Birthday extends Component {
 render(){   
-    console.log(this.props)
+    
     return(
         <div id='birthday'>
-       
+       <div>
+           <h1>Happy Birhday Crazy!</h1>
+       </div>
         </div>
     )
 }

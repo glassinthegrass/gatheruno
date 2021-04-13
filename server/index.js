@@ -4,13 +4,13 @@ const app = express();
 const massive = require('massive');
 const session = require('express-session')
 const peopleCtrl = require('./controllers/peopleCtrl')
-const birthdayCtrl = require('./controllers/birthdayCtrl')
+// const birthdayCtrl = require('./controllers/birthdayCtrl')
 const postCtrl = require('./controllers/postCtrl')
 const authCtrl = require('./controllers/authCtrl')
-const authenticateUser = require('./middleware/authenticateUser')
+// const authenticateUser = require('./middleware/authenticateUser')
 
 
-const { SERVER_PORT, CONNECTION_STRING,SESSION_SECRET } = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
 app.use(express.json());
 
@@ -38,12 +38,13 @@ app.put('/api/posts/:id', postCtrl.editPost);
 app.delete('/api/posts/:id', postCtrl.deletePost);
 
 //COOKIES/auth
+app.get('/auth/user', authCtrl.getUser);
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
 app.delete('/auth/logout', authCtrl.logout);
 
 //Birthdays
-app.get('/api/birthday', birthdayCtrl.getBirthday);
+// app.get('/api/birthday', birthdayCtrl.getBirthday);
 
 massive({
     connectionString: CONNECTION_STRING,

@@ -20,10 +20,12 @@ module.exports = {
             const [ newUser ] = await db.register_user(first_name,last_name, email, hash, admin, phone_number);
 
             // create a session for the user using the db response
-            req.session.user = newUser;
+            req.session.user = {
+                ...newUser
+            };
 
             // send a response that includes the user session info
-            res.status(200).send(newUser);
+           return res.status(200).send(req.session.user);
         } 
             catch(err) {
             console.log(err);
@@ -33,8 +35,6 @@ module.exports = {
       login: async (req, res) => {
         const db = req.app.get("db")
         const {email, password} =req.body
-
-        
 
        try{
            const [existingUser] = await db.get_user_by_email(email)
@@ -58,6 +58,14 @@ module.exports = {
   },
     logout: (req, res) => {
         req.session.destroy();
-        res.sendStatus(200);
+        res.redirect('http://localhost:3111')
+    },
+    getUser: async (req,res) => {
+        const {user}= req.session;
+        if(user) {
+            res.status(200).send(user);
+         } else{
+             return res.sendStatus(401)
+         }
     }
 }

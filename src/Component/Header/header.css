@@ -1,0 +1,81 @@
+#header {
+    max-width: 100vw;
+    height: 5rem;
+    background-color: cornflowerblue;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+#profileText{
+    position:static;
+    text-decoration: none;
+}
+#homeIcon{
+    height:4rem;
+    margin-left:20px;
+    display:flex;
+    justify-content:flex-start;
+}
+#linkPeople{
+    text-decoration: none;
+    color:black
+}
+#linkPeople:hover{
+    text-decoration:underline;
+}
+
+#profileLink{
+    display:none
+}
+#profileToggle:hover{
+    height:2.5rem
+}
+#profileToggle:hover #profileLink{
+    display: block;
+    height:2.5rem;
+
+}
+
+#routes{
+    display: flex;
+    width: 50rem;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    padding:20px
+}
+
+
+section h2 {
+    padding:15px;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  margin-left:5px;
+  margin-right:10px;
+  border-left: 10px solid rgb(242, 230, 207);
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  margin-right: 5px;
+  margin-left:10px;
+  border-right:10px solid rgb(242, 230, 207);
+  
+}
+
+
+#backandforth{
+    display:flex;
+    width: 3rem;
+    height:3rem;
+}

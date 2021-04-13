@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import Birthday from "./Component/Birthday";
+import Header from './Component/Header/Header'
+import routes from './routes'
+import './reset.css'
+import './Component/Header/header.css'
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      candy:''
-    }
-  }
-
-
   render() {
+
     return (
       <div className="App">
-        <Birthday  candy={this.state.candy}/>
+      <Header />
+      {routes}
       </div>
     );
   }

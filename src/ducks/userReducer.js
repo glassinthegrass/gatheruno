@@ -1,25 +1,55 @@
-import axios from 'axios';
+// INITIAL STATE
+import axios from 'axios'
+const initialState = {
+    user: '',
+    isLoggedIn: false
+}
 
-const REQUEST_USER_DATA = 'REQUEST_USER_DATA'
+// ACTION TYPES
+const LOGIN_USER = 'LOGIN_USER';
+const REQUEST_USER = 'REQUEST_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 
-export const requestUserData = () => {
-    let data = axios.get('/auth/user-data').then(res => res.data)
+
+// ACTION CREATORS
+export const loginUser=(email,password) => {
+    let data = axios.post('/auth/login',{email,password}).then(res => res.data)
     return {
-        type: REQUEST_USER_DATA,
+        type: LOGIN_USER,
+        payload: data
+    }
+}
+export const requestUser= () => {
+    let data = axios.get('/auth/user').then(res => res.data)
+    return {
+        type: REQUEST_USER,
         payload: data
     }
 }
 
-const initialState ={
-    email: null
+export const logoutUser=() => {
+    return {
+        type: LOGOUT_USER,
+        payload: axios.delete('/auth/logout')
+    }
 }
 
-export default function reducer(state = initialState,action){
-    switch(action.type){
-        case REQUEST_USER_DATA + '_FULFILLED':
-            const {email} = action.payload.user
-                return{email}
-        default: 
-    return state
+// REDUCER
+export default function reducer(state = initialState, action) {
+    switch(action.type) {
+        case LOGIN_USER + "_FULFILLED":
+            return {
+                ...state,
+              user: action.payload,
+                isLoggedIn: true
+            }
+        case REQUEST_USER + "_FULFILLED":
+            return {
+                ...state,
+              user: action.payload
+            }
+        case LOGOUT_USER + "_FULLFILLED":
+            return initialState;
+        default: return state;
     }
 }
