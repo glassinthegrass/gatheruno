@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {requestUser} from '../../ducks/userReducer'
 import './Birthday.css'
 
 
 class Birthday extends Component {
+componentDidUpdate(){
+   
+        if(this.props.userReducer.user.isLoggedIn) {
+            this.props.history.push('/')
+        }
+    }
 render(){   
     
     return(
@@ -14,4 +22,7 @@ render(){
     )
 }
 }
-export default Birthday
+const mapStateToProps = reduxState => {
+    return reduxState
+}
+export default connect(mapStateToProps,{requestUser})(Birthday)

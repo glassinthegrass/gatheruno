@@ -7,8 +7,9 @@ module.exports = {
     }
 },
 checkLoggedIn: (req,res,next)=> {
-    if(!this.props.isLoggedIn){
-        res.status(403).send(this.props.history.goBack(-1))
+    if(!req.session.user.isLoggedIn){
+        const back = this.props.history.goBack(-1)
+        res.status(403).send(back)
     console.log(req.session.user)
     }else{
         next()

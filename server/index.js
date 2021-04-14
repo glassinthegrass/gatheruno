@@ -7,7 +7,7 @@ const peopleCtrl = require('./controllers/peopleCtrl')
 // const birthdayCtrl = require('./controllers/birthdayCtrl')
 const postCtrl = require('./controllers/postCtrl')
 const authCtrl = require('./controllers/authCtrl')
-// const authenticateUser = require('./middleware/authenticateUser')
+
 
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(session({
     secret: SESSION_SECRET,
-    resave:false,
+    resave:true,
     saveUninitialized:true,
     cookie: {
         maxAge: 31556952000

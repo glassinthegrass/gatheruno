@@ -1,11 +1,13 @@
 
 const bcrypt = require('bcryptjs');
 
+
+
 module.exports = {
     register: async (req, res) => {
         // bring in our db
         const db = req.app.get('db');
-        const { first_name, last_name, email, password, admin, phone_number} = req.body;
+        const { first_name, last_name, email, password } = req.body;
 
         try {
             const [existingUser] = await db.get_user_by_email(email)
@@ -17,15 +19,13 @@ module.exports = {
             // hash and salt the password
             const salt = bcrypt.genSaltSync(10);
             const hash = bcrypt.hashSync(password, salt)
-            const [ newUser ] = await db.register_user(first_name,last_name, email, hash, admin, phone_number);
+            const [ newUser ] = await db.register_user(first_name,last_name, email, hash);
 
             // create a session for the user using the db response
-            req.session.user = {
-                ...newUser
-            };
+        
 
             // send a response that includes the user session info
-           return res.status(200).send(req.session.user);
+           return res.status(200).send(newUser);
         } 
             catch(err) {
             console.log(err);
@@ -47,7 +47,10 @@ module.exports = {
              return res.status(403).send('bad pw')
             } 
             }
+            existingUser.isLoggedIn = true
             delete existingUser.hash
+            delete existingUser.email
+            delete existingUser.phone_number
             req.session.user = existingUser
             res.status(200).send(req.session.user)
 
@@ -57,9 +60,11 @@ module.exports = {
        }
   },
     logout: (req, res) => {
-        req.session.destroy();
-        res.redirect('http://localhost:3111')
+    req.session.destroy()
+    return res.status(200).send(req.session)
     },
+
+
     getUser: async (req,res) => {
         const {user}= req.session;
         if(user) {

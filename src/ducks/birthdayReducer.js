@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const initialState = {
-    people: [],
+    isLoading:false
 }
 
 const GET_ALL_PEOPLE = 'GET_ALL_People';
 
 export const getAllPeople=() =>{
-    let data = axios.get('http://localhost:3111/api/people').then(res => res.data)
+    let data = axios.get('/api/people').then(res => res.data)
     return {
         type: GET_ALL_PEOPLE,
         payload: data
@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_PEOPLE + "_FULFILLED":
             return {
                 ...state,
-                people: action.payload.data,
+                people: action.payload,
             };
 
         case GET_ALL_PEOPLE + "_PENDING":

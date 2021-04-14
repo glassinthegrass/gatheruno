@@ -1,38 +1,33 @@
-
-
+import People from '../People/People'
+import LogWindow from './logWindow'
 import React, {Component }from 'react';
 import {connect} from 'react-redux'
-import {loginUser} from '../../ducks/userReducer'
-import bee from './BeeLogoFull.png'
+import {requestUser,loginUser} from '../../ducks/userReducer'
+import {getAllPeople} from '../../ducks/birthdayReducer'
+
 import './Login.css'
+import axios from 'axios';
 
 
 class Login extends Component{
     constructor(props){
-        super(props)
+        super()
         this.state = {
-            email: '',
-            password:'',
-            resData:''
+            people: [],
+            user: {},
+            isLoading:false
         }
     }
-componentDidUpdate(){
-if(this.props.userReducer.isLoggedIn) {
-    this.props.history.push('/birthday')
-}
-}
-
+    componentDidMount(){
+    axios.get('/api/people').then(res =>{
+           this.setState({people:res.data})
+        })
+    }
 render(){
-  const {email,password} = this.state
   console.log(this.props)
     return(
         <div>
-            <section>
-                <img id='beeLogo' src={bee} alt='beelogo'/>
-                <input onChange={(e) => this.setState({email: e.target.value})} value={this.state.email} type='email' placeholder='Enter Email'></input>
-                <input onChange={(e)=> this.setState({password: e.target.value})} value={this.state.password}type='password' placeholder='Enter Password'></input>
-                <button onClick={()=>this.props.loginUser(email,password)} type='submit'>Login</button>
-            </section>
+            {!this.props.userReducer.user ? <LogWindow /> : <People people={this.state.people}/> }
         </div>
     )
 }
@@ -41,5 +36,5 @@ render(){
 const mapStateToProps = reduxState => {
     return reduxState
 }
-export default connect(mapStateToProps,{loginUser})(Login)
+export default connect(mapStateToProps,{loginUser,requestUser,getAllPeople})(Login)
 
