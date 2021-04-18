@@ -3,38 +3,37 @@ import LogWindow from './logWindow'
 import React, {Component }from 'react';
 import {connect} from 'react-redux'
 import {requestUser,loginUser} from '../../ducks/userReducer'
-import {getAllPeople} from '../../ducks/birthdayReducer'
+import {getAllPeople,getBirthday} from '../../ducks/personReducer'
 
 import './Login.css'
-import axios from 'axios';
 
 
 class Login extends Component{
-    constructor(props){
+    constructor(){
         super()
         this.state = {
-            people: [],
-            user: {},
-            isLoading:false
+            style:''
         }
     }
     componentDidMount(){
-    axios.get('/api/people').then(res =>{
-           this.setState({people:res.data})
-        })
+        this.props.getAllPeople()
+this.props.getBirthday()
     }
-render(){
-  console.log(this.props)
-    return(
-        <div>
-            {!this.props.userReducer.user ? <LogWindow /> : <People people={this.state.people}/> }
-        </div>
-    )
-}
-}
 
+render(){
+    const today = new Date()
+  console.log(today.getDay())
+    return(
+<div id='loginComponent'>
+    {this.props.userReducer.user.isLoggedIn ? <div id='ppl' ><People render={()=>this.render()} onClick={()=>this.handleClick()} people={this.props.personReducer.people}/> </div>:<div id='logwindow'><LogWindow render={()=>this.render()}/></div> }
+</div>
+
+        )
+
+}
+}
 const mapStateToProps = reduxState => {
     return reduxState
 }
-export default connect(mapStateToProps,{loginUser,requestUser,getAllPeople})(Login)
+export default connect(mapStateToProps,{loginUser,getBirthday,requestUser,getAllPeople})(Login)
 

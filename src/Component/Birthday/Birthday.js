@@ -5,12 +5,6 @@ import './Birthday.css'
 
 
 class Birthday extends Component {
-componentDidUpdate(){
-   
-        if(this.props.userReducer.user.isLoggedIn) {
-            this.props.history.push('/')
-        }
-    }
 render(){   
     
     return(

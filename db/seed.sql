@@ -2,10 +2,10 @@ CREATE TABLE person(
     person_id SERIAL PRIMARY KEY,
     first_name VARCHAR(35) NOT NULL,
     last_name VARCHAR(35) NOT NULL,
-    email VARCHAR(35),
-    birthday DATE NOT NULL,
+    email VARCHAR(100),
+    birthday VARCHAR(10),
     picture varchar(5000) DEFAULT 'https://bit.ly/2RpyDE0',
-    zipcode INT(5),
+    zipcode VARCHAR,
     message TEXT 
 );
 
@@ -24,6 +24,22 @@ CREATE TABLE post(
     post_content TEXT NOT NULL,
     post_url VARCHAR(5000)
     );
+CREATE TABLE emails(
+    email_id SERIAL PRIMARY KEY,
+    email_text TEXT,
+    email_attachment TEXT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+);
+CREATE TABLE user_post_person(
+    user_post_person_id SERIAL PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    post_id INT, 
+    FOREIGN KEY (post_id) REFERENCES post(post_id),
+    person_id INT,
+    FOREIGN KEY (person_id) REFERENCES person(person_id)
+);
 
 CREATE TABLE person_user(
     person_user_id SERIAL PRIMARY KEY,
@@ -32,19 +48,16 @@ CREATE TABLE person_user(
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
-CREATE TABLE user_post(
-    user_post_id SERIAL PRIMARY KEY,
-    post_id INT,
-    FOREIGN KEY (post_id) REFERENCES post(post_id),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    person_id INT,
-    FOREIGN KEY (person_id) References person(person_id)
+CREATE TABLE groups(
+    group_id SERIAL PRIMARY KEY,
+person_id INT,
+FOREIGN KEY (person_id) REFERENCES person(person_id),
+group_name VARCHAR(200)
 );
 
-Create Table group_person_user(
-    group_name VARCHAR(40) PRIMARY KEY,
-    person_id INT,
-    FOREIGN KEY (person_id) REFERENCES person(person_id)
-);
+
+INSERT INTO groups(group_name,person_id) VALUES
+($1, (SELECT person_id from person where person_id=$2));
+
+INSERT INTO album(title,artist_id ) VALUES
+('Hot New Mixtape',(SELECT artist_id from artist where artist_id=1));

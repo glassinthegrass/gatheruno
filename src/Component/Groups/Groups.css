@@ -1,0 +1,22 @@
+#group{
+display: grid;
+grid-template-columns: 3% 29.333% 3% 29.333% 3% 29.333% 3%;
+background-color: rgb(241,170,111);
+width: 25%;
+height:8rem;
+margin-bottom:0.5rem;
+margin-top:0.5rem;
+margin-left:0.5rem;
+margin-right:0.5rem;
+
+}
+#groups{
+display:flex;
+flex-wrap: wrap;
+flex-direction: row-reverse;
+width:100vw;
+justify-content:center;
+align-items: center;
+align-content: center;
+margin-top:4rem;
+}

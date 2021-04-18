@@ -1,23 +1,38 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getAllPeople} from '../../ducks/birthdayReducer';
+import {getAllPeople} from '../../ducks/personReducer';
 import {requestUser} from '../../ducks/userReducer';
 import Person from './Person'
 class People extends Component{
+    constructor(){
+        super()
+        this.state={
+            id:0
+        }
+    }
+componentDidMount(){
 
+}
+handleClick =()=>{
+    
+}
 render(){
-    console.log(this.props) 
     const {people} =this.props
     let mappedPeople = people.map((person, i) => {
         return(
-        <Person key={i} person={person} />
+        <Person id='personComponent'key={i} person={person} render={()=> <Person/>}/>
       )
     });
 return(
-<div>
-    {mappedPeople}
+<section>
+<div id='mappedPerson'>
+    {mappedPeople} 
 </div>
+<aside id='peopleAside'>
+
+</aside>
+</section>
 )
 }
 }

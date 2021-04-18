@@ -1,4 +1,119 @@
-#beeLogo{
-    width: 40px;
-    height: 40px;
+
+
+
+
+
+
+
+
+#loginComponent{
+    display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+height: 90vh;
+background-color:rgb(242,230,207);
+}
+
+
+#loginWindowComponent{
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+flex-direction: column;
+padding: 10px;
+background-color:rgb(252,219,166);
+border-left:3px solid rgb(88,88,88);
+border-top:3px solid rgb(88,88,88);
+border-right:3px solid rgb(88,88,88);
+}
+
+#toggles{
+    display: flex;
+    flex-direction: row;
+}
+
+#loginButton{
+height:2rem;
+width:50%;
+text-align: center;
+background-color: rgb(242, 230, 207);
+color: rgb(88,88,88);
+border: 3px solid rgb(88,88,88);
+border-radius: 40px;
+}
+
+#registerToggle{
+  border-radius: 2px solid rgb(88,88,88);
+  width:50%;
+  text-align: center;
+  background-color: rgb(252,219,166);
+  color: rgb(88,88,88);
+  border-left: 1px solid rgb(88,88,88);
+  border-bottom: 3px solid rgb(88,88,88);
+  border-right: 3px solid rgb(88,88,88);
+}
+#registerWindowComponent{
+display:flex;
+flex-direction: column;
+flex-wrap: wrap;
+background-color:rgb(252,219,166);
+border-left:3px solid rgb(88,88,88);
+border-top:3px solid rgb(88,88,88);
+border-right:3px solid rgb(88,88,88);
+}
+#registerSubmit{
+    text-align: center;
+    background-color: rgb(242, 230, 207);
+  color: rgb(88,88,88);
+  border: 3px solid rgb(88,88,88);
+border-radius: 40px;
+}
+.regInput{
+    padding:4px;
+    margin:3px;
+    background-color: rgb(242, 230, 207);
+  color: rgb(88,88,88);
+  border: 3px solid rgb(88,88,88);
+border-radius: 40px;
+}
+.buttonsBox{
+height:2rem;
+display:flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+align-content: center;
+}
+
+#logemailInput{
+    text-align: center;
+    background-color: rgb(242, 230, 207);
+  color: rgb(88,88,88);
+  border: 3px solid rgb(88,88,88);
+border-radius: 40px;
+height:1.3rem
+}
+#logpasswordInput{
+    height:1.3rem;
+    text-align: center;
+    background-color: rgb(242, 230, 207);
+  color: rgb(88,88,88);
+  border: 3px solid rgb(88,88,88);
+border-radius: 40px;
+margin:2px;
+}
+#loginToggle{
+border-radius: 2px solid rgb(88,88,88);
+width:50%;
+text-align: center;
+background-color: rgb(252,219,166);
+color: rgb(88,88,88);
+border-left: 3px solid rgb(88,88,88);
+border-bottom: 3px solid rgb(88,88,88);
+}
+
+#ppl{
+
 }

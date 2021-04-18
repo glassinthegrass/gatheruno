@@ -26,34 +26,27 @@ class Header extends Component{
           id='homeIcon'
         />
       </Link>
-      {userReducer.isLoggedin ? <h2>Hi {userReducer.user.first_name}</h2> : <p> </p>}
+      {userReducer.user ? <h2>{`Hi ${userReducer.user.first_name}!`}</h2> :<> </> }
       </div>
 
 
       <section id='routes'>
-<Link id='linkPeople' to='/'>
-    <h2 id='linkPeopleText'>People</h2>
+<Link id='linkPeople' to='/birthdays'>
+    <h2 id='linkPeopleText'>Birthdays</h2>
 </Link>
 
+    <h2 id='linkGroupsText'><Link id='linkGroups' to='/groups'>Groups</Link></h2>
 
-<Link to='/'onClick={()=>this.handleLogout()} >logout</Link>
-
-     
 
     <div id="profileToggle">
         <h2 id='profileText'>Profile</h2> 
-
-  
-
-        <Link id='linkProfile' to='/profile'>
-        <h2 id='profileLink'>Profile</h2>
-        </Link>
-     
+        <h2 id='profileLink'>
+        <Link id='linkProfile' to='/profile'>Profile</Link>
+        <Link id='logoutLink' to='/'onClick={()=>this.handleLogout()} >Logout</Link>
+        </h2>
     </div>
     <nav id='backandforth'>
-
 <div  className="arrow-left"></div>
-
 <div className="arrow-right"></div>
 </nav>
     

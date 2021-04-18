@@ -1,1 +1,2 @@
-SELECT * FROM person;
+SELECT * FROM person
+WHERE birthday ILIKE '%' || $1 || '%';

@@ -1,7 +1,7 @@
 #header {
     max-width: 100vw;
     height: 5rem;
-    background-color: cornflowerblue;
+    background-color: rgba(252, 142, 52, 0.792);
     
     display: flex;
     justify-content: space-between;
@@ -9,8 +9,12 @@
     align-content: center;
   }
 #profileText{
-    position:static;
+height:3rem;
     text-decoration: none;
+display:flex;
+justify-content: center;
+align-items: center;
+align-content: center;
 }
 #homeIcon{
     height:4rem;
@@ -27,24 +31,29 @@
 }
 
 #profileLink{
-    display:none
+    display:none;
+    background-color: rgba(252, 142, 52, 0.792);
+    position:absolute
 }
-#profileToggle:hover{
-    height:2.5rem
-}
+
 #profileToggle:hover #profileLink{
-    display: block;
-    height:2.5rem;
+    display: flex;
+    justify-content: center;
+align-items: center;
+align-content: center;
+flex-direction: column;
 
 }
+
 
 #routes{
     display: flex;
-    width: 50rem;
+    width: 100rem;
     justify-content: flex-end;
     align-items: center;
-    align-content: center;
-    padding:20px
+    align-content: flex-end;
+    padding:16px;
+
 }
 
 
@@ -78,4 +87,17 @@ section h2 {
     display:flex;
     width: 3rem;
     height:3rem;
+
+}
+
+#linkGroups{
+    text-decoration: none;
+    color:black
+}
+#linkGroups:hover{
+text-decoration:underline;
+}
+#logout{
+    text-decoration: none;
+
 }

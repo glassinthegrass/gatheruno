@@ -1,52 +1,46 @@
 module.exports = {
-    getPosts: (req, res) => {
+    getGroups: (req, res) => {
         const db = req.app.get('db');
-
-        db.get_all_posts()
+        db.get_all_groups()
             .then(dbRes => {
                 res.status(200).send(dbRes)
             })
             .catch(err => console.log(err))
     },
 
-    addPost: (req, res) => {
-
+    addGroup: (req, res) => {
         const db = req.app.get('db');
-        const { post_content,post_url } = req.body;
+        const {person_id,group_name} = req.body;
 
-        db.add_post(post_content,post_url)
+        db.add_group(person_id,group_name)
             .then(dbRes => {
                 res.status(200).send(dbRes)
             })
             .catch(err => console.log(err))
     },
-
-    editPost: (req,res) => {
+    getPeopleInGroup: (req,res) => {
         const db = req.app.get('db');
-        const {id} =req.params
-        const {post_content, post_url}= req.body;
-
-        db.update_post(id,post_content,post_url)
+const {group_name} = req.body
+        db.get_people_by_group(group_name)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))
     },
-
-    deletePost: (req,res) => {
+    deletePerson: (req,res) => {
         const db = req.app.get('db');
         const {id} = req.params
-        db.delete_post(id)
+        db.delete_person(id)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))
     },
 
     
-    getPost: (req,res) => {
+    getPerson: (req,res) => {
         const db = req.app.get('db');
         const {id} =req.params
 
-        db.get_post(id)
+        db.get_person(id)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))

@@ -1,7 +1,6 @@
 module.exports = {
     getPeople: (req, res) => {
         const db = req.app.get('db');
-
         db.get_all_people()
             .then(dbRes => {
                 res.status(200).send(dbRes)
@@ -11,7 +10,7 @@ module.exports = {
 
     addPerson: (req, res) => {
         const db = req.app.get('db');
-        const { first_name,last_name,email,birthday,picture,zipcode, message} = req.body;
+        const { first_name,last_name,email,birthday,picture,zipcode,message} = req.body;
 
         db.add_person(first_name,last_name,email,birthday,picture,zipcode,message)
             .then(dbRes => {

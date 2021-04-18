@@ -1,38 +1,156 @@
+import axios from "axios";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loginUser } from "../../ducks/userReducer";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-
-import React, {Component }from 'react';
-import {connect} from 'react-redux'
-import {loginUser} from '../../ducks/userReducer'
-
-import './Login.css'
-
-
-class LoginWindow extends Component{
-    constructor(props){
-        super()
-        this.state={
-            email:'',
-            password:''
-        }
+class LoginWindow extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginEmail: "",
+      loginPassword: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      login: true,
+    };
+  }
+  handleLoginToggle = () => {
+    if (!this.state.login) {
+      this.setState({ login: true });
     }
+  };
 
-render(){
-  const {email,password} = this.state
-  console.log(this.props)
-    return(
+  handleRegisterToggle = () => {
+    if (this.state.login) {
+      this.setState({ login: false });
+    }
+  };
+
+  handleRegister = (first_name, last_name, email, password) => {
+    axios
+      .post("/api/register", { first_name, last_name, email, password })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+    this.setState({ login: true });
+  };
+  render() {
+    const {
+      loginEmail,
+      loginPassword,
+      first_name,
+      last_name,
+      email,
+      password,
+    } = this.state;
+    return (
+      <div>
         <div>
-            
-            <section>
-                <input onChange={(e) => this.setState({email: e.target.value})} value={this.state.email} type='email' placeholder='Enter Email'></input>
-                <input onChange={(e)=> this.setState({password: e.target.value})} value={this.state.password}type='password' placeholder='Enter Password'></input>
-                <button onClick={()=>this.props.loginUser(email,password)} type='submit'>Login</button>
-            </section>
-        </div>
-    )
-}
-}
+          {this.state.login ? (
+            <section id="loginWindowComponent">
+              <h2>Thanks for Buzzin' by!</h2>
+              <input
+                id="logemailInput"
+                onChange={(e) => this.setState({ loginEmail: e.target.value })}
+                type="email"
+                placeholder="Enter Email"
+              ></input>
+              <input
+                id="logpasswordInput"
+                onChange={(e) =>
+                  this.setState({ loginPassword: e.target.value })
+                }
+                type="password"
+                placeholder="Enter Password"
+              ></input>
 
-const mapStateToProps = reduxState => {
-    return reduxState
+              <button
+                id="loginButton"
+                onClick={() => this.props.loginUser(loginEmail, loginPassword)}
+                type="submit"
+              >
+                {" "}
+                <Link to="/people">Login</Link>
+              </button>
+            </section>
+          ) : (
+            <></>
+          )}
+
+          {!this.state.login ? (
+            <section id="registerWindowComponent">
+              <h2>Thanks for Buzzin' by!</h2>
+              <input
+                id="firstnameInput"
+                className="regInput"
+                onChange={(e) => this.setState({ first_name: e.target.value })}
+                type="text"
+                placeholder="First Name"
+              ></input>
+              <input
+                id="lastNameInput"
+                className="regInput"
+                onChange={(e) => this.setState({ last_name: e.target.value })}
+                type="text"
+                placeholder="Last Name"
+              ></input>
+              <input
+                id="emailInput"
+                className="regInput"
+                onChange={(e) => this.setState({ email: e.target.value })}
+                type="email"
+                placeholder="Email"
+              ></input>
+              <input
+                id="passwordInput"
+                className="regInput"
+                onChange={(e) => this.setState({ password: e.target.value })}
+                type="password"
+                placeholder="Password"
+              ></input>
+              <button
+                id="registerSubmit"
+                className="regInput"
+                type="button"
+                onClick={() =>
+                  this.handleRegister(first_name, last_name, email, password)
+                }
+              >
+                Submit
+              </button>
+            </section>
+          ) : (
+            <></>
+          )}
+        </div>
+        <section id="toggles">
+          <p
+            id="loginToggle"
+            className="buttonsBox"
+            onClick={() => this.handleLoginToggle()}
+            type="submit"
+          >
+            Login
+          </p>
+          <p
+            id="registerToggle"
+            className="buttonsBox"
+            onClick={() => this.handleRegisterToggle()}
+            type="submit"
+          >
+            Register
+          </p>
+        </section>
+      </div>
+    );
+  }
 }
-export default connect(mapStateToProps,{loginUser})(LoginWindow)
+const mapStateToProps = (reduxState) => {
+  return reduxState;
+};
+export default connect(mapStateToProps, { loginUser })(LoginWindow);
