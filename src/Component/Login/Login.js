@@ -16,6 +16,7 @@ class Login extends Component{
         }
     }
     componentDidMount(){
+        //call all groups with the people already attatched to them you god damn reta
         this.props.getAllPeople()
 this.props.getBirthday()
     }
@@ -24,7 +25,7 @@ render(){
     const today = new Date()
   console.log(today.getDay())
     return(
-<div id='loginComponent'>
+<div id='loginComponent'> 
     {this.props.userReducer.user.isLoggedIn ? <div id='ppl' ><People render={()=>this.render()} onClick={()=>this.handleClick()} people={this.props.personReducer.people}/> </div>:<div id='logwindow'><LogWindow render={()=>this.render()}/></div> }
 </div>
 

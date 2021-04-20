@@ -11,14 +11,10 @@ class People extends Component{
             id:0
         }
     }
-componentDidMount(){
-
-}
-handleClick =()=>{
-    
-}
 render(){
     const {people} =this.props
+
+    console.log(people)
     let mappedPeople = people.map((person, i) => {
         return(
         <Person id='personComponent'key={i} person={person} render={()=> <Person/>}/>
@@ -39,7 +35,8 @@ return(
 
 
 const mapStateToProps = reduxState => {
-return reduxState
-
+return (
+    reduxState
+    )
 }
-export default connect(mapStateToProps,{ getAllPeople,requestUser})(People)
+export default connect(mapStateToProps,{getAllPeople,requestUser})(People)

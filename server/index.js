@@ -27,7 +27,8 @@ app.use(
 );
 
 app.get("/api/groups", groupCtrl.getGroups);
-app.get("/api/group", groupCtrl.getPeopleInGroup);
+app.get("/api/groupNames", groupCtrl.getGroupNames);
+app.get("/api/group/:name", groupCtrl.getPeopleInGroup);
 app.post("/api/groups", groupCtrl.addGroup);
 
 //people or person table
@@ -40,7 +41,7 @@ app.delete("/api/people/:id", peopleCtrl.deletePerson);
 //posts or posts table
 app.get("/api/posts", postCtrl.getPosts);
 app.post("/api/posts", postCtrl.addPost);
-// app.post('/api/posts/:user/:group/:person', postCtrl.addPost);
+
 app.get("/api/posts/:id", postCtrl.getPost);
 app.put("/api/posts/:id", postCtrl.editPost);
 app.delete("/api/posts/:id", postCtrl.deletePost);
@@ -50,9 +51,12 @@ app.get("/auth/user", authCtrl.getUser);
 app.post("/api/register", authenticateUser.register);
 app.post("/auth/login", authCtrl.login);
 app.delete("/auth/logout", authCtrl.logout);
+app.get("/auth/profile", authCtrl.getProfile);
 
 // Birthdays
 app.get("/api/birthday", birthdayCtrl.getBirthday);
+app.post("/api/email", birthdayCtrl.sendEmail);
+app.get("/api/email", birthdayCtrl.getEmails);
 
 massive({
   connectionString: CONNECTION_STRING,
@@ -63,7 +67,7 @@ massive({
   .then((dbInstance) => {
     app.set("db", dbInstance);
     app.listen(SERVER_PORT, () =>
-      console.log(`DB connected & Server rockin out on ${SERVER_PORT}fm`)
+      console.log(`Now you're cooking with GAS down here in  Server Port ${SERVER_PORT}`)
     );
   })
   .catch((err) => console.log(err));

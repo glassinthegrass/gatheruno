@@ -12,9 +12,9 @@ module.exports = {
     addPost: (req, res) => {
 
         const db = req.app.get('db');
-        const { post_content,post_url } = req.body;
+        const { post_content,post_url,user_id, post_id } = req.body;
 
-        db.add_post(post_content,post_url)
+        db.add_post(post_content,post_url,user_id,post_id)
             .then(dbRes => {
                 res.status(200).send(dbRes)
             })

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../ducks/userReducer";
-import { Link } from "react-router-dom";
+
 import "./Login.css";
 
 class LoginWindow extends Component {
@@ -74,8 +74,7 @@ class LoginWindow extends Component {
                 onClick={() => this.props.loginUser(loginEmail, loginPassword)}
                 type="submit"
               >
-                {" "}
-                <Link to="/people">Login</Link>
+        Login
               </button>
             </section>
           ) : (

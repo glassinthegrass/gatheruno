@@ -18,6 +18,7 @@ module.exports = {
             })
             .catch(err => console.log(err))
     },
+
     updatePerson: (req,res) => {
         const db = req.app.get('db');
         const {id} =req.params
@@ -28,6 +29,7 @@ module.exports = {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))
     },
+
     deletePerson: (req,res) => {
         const db = req.app.get('db');
         const {id} = req.params
@@ -37,7 +39,7 @@ module.exports = {
         }).catch(err => console.log(err))
     },
 
-    
+
     getPerson: (req,res) => {
         const db = req.app.get('db');
         const {id} =req.params

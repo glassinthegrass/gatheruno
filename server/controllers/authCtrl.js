@@ -19,7 +19,7 @@ module.exports = {
             
             existingUser.isLoggedIn = true
             delete existingUser.hash
-            delete existingUser.email
+
             delete existingUser.phone_number
             req.session.user = existingUser
             res.status(200).send(req.session.user)
@@ -30,9 +30,9 @@ module.exports = {
           return res.sendStatus(500)
        }
   },
-    logout: async (req, res) => {
+    logout: (req, res) => {
     req.session.destroy()
-    await res.status(200).send(req.session)
+    res.status(200).send(req.session)
     },
 
     getUser: async (req,res) => {
@@ -42,5 +42,18 @@ module.exports = {
          } else{
              return res.sendStatus(401)
          }
+    },
+    getProfile: async (req,res) => {
+    const db = req.app.get("db")    
+const {user}= req.session  
+        try{
+            const [existingUser] = await db.get_user_by_email(user.email)
+
+            res.status(200).send(existingUser)
     }
+    catch(err){
+        console.log(err)
+        res.sendStatus(500)
+    }
+},
 }

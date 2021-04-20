@@ -6,34 +6,29 @@ import SingleGroup from './SingleGroup';
 import './Groups.css'
 
 
-class Birthday extends Component {
+class Groups extends Component {
     constructor(props){
         super(props)
         this.state={
             groups:[],
-            groupId:0,
-            group:[]
+            groupName:''
+
         }
     }    
     componentDidMount(){
-    axios.get('/api/groups').then(res =>{
+    axios.get('/api/groupNames').then(res =>{
         this.setState({groups:res.data})
+        console.log(res.data)
+
     })
+
 }
-handleClick=(group_name)=> {
-        axios.get(`/api/group`, group_name)
-        .then(res=> {
-            this.setState({group:res.data})
-        })
-        console.log(group_name)
-    }
-    
 render(){   
-    console.log(this.state.group)
-    const {groups,group}= this.state
-    let mappedgroups= groups.map((groups, i) => {
+console.log(this.props)
+    const {groups}= this.state
+    let mappedgroups= groups.map((group, i) => {
         return(
-        <SingleGroup id='singleGroup' key={i} handleClick={this.handleClick} groups={groups} group={group} render={()=> <SingleGroup/>}/>
+        <SingleGroup id='singleGroup' key={i} group={group}  render={()=> <SingleGroup/>}/>
       )
     });
     return(
@@ -46,4 +41,4 @@ render(){
 const mapStateToProps = reduxState => {
     return reduxState
 }
-export default connect(mapStateToProps,{requestUser})(Birthday)
+export default connect(mapStateToProps,{requestUser})(Groups)

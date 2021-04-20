@@ -1,0 +1,55 @@
+#holder{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+background-color: rgb(241,170,111);
+}
+#mainProfile{
+    background-color: rgb(240,230,209);
+    height:90vh;
+    width:90%;
+    display: flex;
+    justify-content: flex-start;
+flex-direction: column;
+    
+}
+
+#picInfo{
+    display:flex;
+
+}
+
+#profilePic{
+    width: 30vh;
+    height:30vh;
+    background-color: rgb(186,147,68);
+    margin-left:2.5vh;
+    margin-top:2.5vh;
+
+}
+#profileInfo{
+    margin-top:4vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:30vh;
+    width:fit-content
+}
+#profileInfo li{
+    padding-top:1.5vh; 
+    padding-bottom:1.5vh; 
+    margin-left:1.5vh; 
+    margin-right:1.5vh; 
+}
+
+#profileName{
+    display:flex;
+    justify-content: center;
+}
+
+#messageParagraph{
+    margin:10px;
+}

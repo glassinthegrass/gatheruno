@@ -1,0 +1,24 @@
+#birthdayview{
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+align-items: center;
+align-content: center;
+padding:3px
+}
+
+#birthdayPicture{
+    height: 10rem;
+    width:10rem;
+    padding:3px
+}
+
+#birthdayInfo{
+    padding:10px;
+text-align: center;
+}
+
+#emailInput{
+    height:30vh;
+    width:80vw
+}

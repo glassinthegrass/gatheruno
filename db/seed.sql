@@ -22,7 +22,11 @@ CREATE TABLE users(
 CREATE TABLE post(
     post_id SERIAL PRIMARY KEY,
     post_content TEXT NOT NULL,
-    post_url VARCHAR(5000)
+    post_url VARCHAR(5000),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    person_id INT,
+    FOREIGN KEY (person_id) REFERENCES person(person_id)
     );
 CREATE TABLE emails(
     email_id SERIAL PRIMARY KEY,
@@ -33,12 +37,9 @@ CREATE TABLE emails(
 );
 CREATE TABLE user_post_person(
     user_post_person_id SERIAL PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    post_id INT, 
-    FOREIGN KEY (post_id) REFERENCES post(post_id),
-    person_id INT,
-    FOREIGN KEY (person_id) REFERENCES person(person_id)
+    
+    post_id INT SERIAL,
+    
 );
 
 CREATE TABLE person_user(
@@ -54,10 +55,3 @@ person_id INT,
 FOREIGN KEY (person_id) REFERENCES person(person_id),
 group_name VARCHAR(200)
 );
-
-
-INSERT INTO groups(group_name,person_id) VALUES
-($1, (SELECT person_id from person where person_id=$2));
-
-INSERT INTO album(title,artist_id ) VALUES
-('Hot New Mixtape',(SELECT artist_id from artist where artist_id=1));

@@ -41,7 +41,7 @@ class Header extends Component{
     <div id="profileToggle">
         <h2 id='profileText'>Profile</h2> 
         <h2 id='profileLink'>
-        <Link id='linkProfile' to='/profile'>Profile</Link>
+        <Link id='linkProfile' to='/user'>Profile</Link>
         <Link id='logoutLink' to='/'onClick={()=>this.handleLogout()} >Logout</Link>
         </h2>
     </div>

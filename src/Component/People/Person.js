@@ -19,12 +19,15 @@ this.setState({cardToggle:!this.state.cardToggle})
       <div id="cardHeader"  onClick={this.handleClick}>
   <img id='person_pic' src={person.picture} alt='what'/>
        <p id='cardHeaderName'>{person.first_name} {person.last_name}</p>
+       
        </div>
-       {this.state.cardToggle ? <></>:<section id='cardExtension' onClick={()=>this.handleClick()} ><p>{person.email}</p>
+       
+       {this.state.cardToggle ? <></>:<section id='cardExtension' onClick={()=>this.handleClick()} ><br/><p>{person.email}</p>
        <p>{person.birthday}</p>
        <p>{person.message}</p>
+       
        </section>}
-      
+
       </div>
     );
   }
