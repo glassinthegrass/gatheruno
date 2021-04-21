@@ -23,9 +23,7 @@ let mappedBirthday = birthdays.map((birthday, i) => {
 });
     return(
         <div id='birthday'>
-           <h1>Happy Birhday Crazy!</h1>
                 {mappedBirthday}
-
         </div>
     )
 }

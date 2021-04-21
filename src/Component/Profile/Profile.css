@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-
 background-color: rgb(241,170,111);
+
 }
 #mainProfile{
     background-color: rgb(240,230,209);
@@ -12,7 +12,9 @@ background-color: rgb(241,170,111);
     display: flex;
     justify-content: flex-start;
 flex-direction: column;
-    
+border: 5px inset rgb(188,175,101);
+box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
+border-radius: 10px 10px 10px 10px;
 }
 
 #picInfo{
@@ -26,6 +28,8 @@ flex-direction: column;
     background-color: rgb(186,147,68);
     margin-left:2.5vh;
     margin-top:2.5vh;
+box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+border-radius: 10px 10px 10px 10px;
 
 }
 #profileInfo{

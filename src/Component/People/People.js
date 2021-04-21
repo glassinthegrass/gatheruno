@@ -4,33 +4,29 @@ import {connect} from 'react-redux';
 import {getAllPeople} from '../../ducks/personReducer';
 import {requestUser} from '../../ducks/userReducer';
 import Person from './Person'
-class People extends Component{
-    constructor(){
-        super()
-        this.state={
-            id:0
-        }
-    }
-render(){
-    const {people} =this.props
+import './People.css'
 
-    console.log(people)
+
+
+
+
+
+
+const People =(props)=>{
+    const {people} = props
+
     let mappedPeople = people.map((person, i) => {
         return(
         <Person id='personComponent'key={i} person={person} render={()=> <Person/>}/>
       )
     });
 return(
-<section>
+
 <div id='mappedPerson'>
     {mappedPeople} 
 </div>
-<aside id='peopleAside'>
 
-</aside>
-</section>
 )
-}
 }
 
 

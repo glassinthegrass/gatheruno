@@ -1,10 +1,15 @@
+#birthday{
+    height:80vh;
+}
 #birthdayview{
     display: flex;
     flex-direction: column;
+
 justify-content: center;
 align-items: center;
 align-content: center;
-padding:3px
+background-color:rgb(242,230,207);
+
 }
 
 #birthdayPicture{
@@ -19,6 +24,11 @@ text-align: center;
 }
 
 #emailInput{
-    height:30vh;
-    width:80vw
+    height:5vh;
+    width:25rem;
+}
+
+#messageinput{
+    box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+    border-radius: 10px 10px 10px 10px;
 }

@@ -1,36 +1,30 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import './People.css'
 
 
-class Person extends Component {
-constructor(props){
-  super(props)
-  this.state={
-    cardToggle: true
+const Person=(props)=>{
+const [cardToggle,setCardToggle] =useState(true)
+
+  const handleClick=()=>{
+setCardToggle(!cardToggle)
   }
-}
-  handleClick=()=>{
-this.setState({cardToggle:!this.state.cardToggle})
-  }
-  render() {
-    const {person}= this.props
+
     return (
       <div id='cardAll'>
-      <div id="cardHeader"  onClick={this.handleClick}>
-  <img id='person_pic' src={person.picture} alt='what'/>
-       <p id='cardHeaderName'>{person.first_name} {person.last_name}</p>
+      <div id="cardHeader"  onClick={handleClick}>
+  <img id='person_pic' src={props.person.picture} alt='what'/>
+       <p id='cardHeaderName'>{props.person.first_name} {props.person.last_name}</p>
        
        </div>
-       
-       {this.state.cardToggle ? <></>:<section id='cardExtension' onClick={()=>this.handleClick()} ><br/><p>{person.email}</p>
-       <p>{person.birthday}</p>
-       <p>{person.message}</p>
+       {cardToggle ? <></>:<section id='cardExtension' onClick={()=>handleClick()} ><br/><p>{props.person.email}</p>
+       <p>{props.person.birthday}</p>
+       <p>{props.person.message}</p>
        
        </section>}
 
       </div>
     );
   }
-};
+
 
 export default Person

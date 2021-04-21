@@ -49,11 +49,11 @@ class LoginWindow extends Component {
       password,
     } = this.state;
     return (
-      <div>
+      <div id='all'>
         <div>
           {this.state.login ? (
             <section id="loginWindowComponent">
-              <h2><img id='gatherIconLogin' src={Bee} alt='gather Logo'></img>Thanks for Buzzin' by!</h2>
+              <h2><img id='gatherIconLogin' src={Bee} alt='gather Logo'></img>See What's the Buzz</h2>
               <input
                 id="logemailInput"
                 onChange={(e) => this.setState({ loginEmail: e.target.value })}

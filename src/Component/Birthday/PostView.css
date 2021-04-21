@@ -1,0 +1,49 @@
+#post{
+    display:flex;
+    text-align:center;
+flex-direction: column;
+    font-family: 'Nunito Light';
+    width: 25rem;
+min-height: 7rem;
+    margin-top:0.75rem;
+    background-color: whitesmoke;
+border: 5px inset rgba(188, 175, 101, 0.896);
+border-radius: 10px 10px 10px 10px;
+padding:5px 5px 5px 5px;
+box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
+
+}
+#post:hover{
+transform: scale(1.05);
+}
+#postheader{
+    display: flex;
+margin-left:5px;
+    justify-content: space-between;
+    align-items: center;
+backdrop-filter: blur(20px);
+}
+#user{
+    display: flex;
+    align-items: center;
+    padding-right:4px;
+}
+#person{
+    display:flex;
+    align-items: center;
+}
+
+#postuserPicture{
+    height: 2rem;
+box-shadow: 5px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
+border-radius: 50%;
+}
+#postMessage{
+    display: flex;
+    float: right;
+    margin-top:10px;
+justify-content: center;
+align-content: center;
+position: relative;
+z-index: 1;
+}

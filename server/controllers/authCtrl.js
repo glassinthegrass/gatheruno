@@ -7,7 +7,7 @@ module.exports = {
         const {email, password} =req.body
        try{
            const [existingUser] = await db.get_user_by_email(email)
-            if(!existingUser.first_name){
+            if(!existingUser){
             
                 res.status(403).send('yo you not registered')
             } else{

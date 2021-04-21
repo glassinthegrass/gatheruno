@@ -7,7 +7,7 @@ import PostView from './PostView'
 const BirthdayView =(props)=>{
 
 const [emailMessage,setEmailMessage]= useState('')
-const [emailResponse,setEmailResponse]= useState('')
+
 const [posts,setPosts]= useState([])
 
 useEffect(()=>{
@@ -15,13 +15,10 @@ useEffect(()=>{
 axios.get(`/api/posts/${person_id}`).then(res =>{
     setPosts(res.data)
 }).catch(err=>console.log(err))
-console.log(posts)
-console.log(person_id)
-console.log(props.birthday)
-},);
+},[props.birthday]);
 
 const handleClick=(name,email,emailMessage)=>{
-axios.post('/api/email',{name,email,emailMessage}).then(res=>setEmailResponse(res.data)).catch(err =>console.log(err))
+axios.post('/api/email',{name,email,emailMessage}).then(res=>console.log(res.data)).catch(err =>console.log(err))
 }
 let mappedPosts = posts.map((post, i) => {
     return(
@@ -31,16 +28,14 @@ let mappedPosts = posts.map((post, i) => {
 
 return(
     <div id='birthdayview'>
-        <img id='birthdayPicture'src={props.birthday.picture} alt={'https://i.pinimg.com/474x/92/31/f1/9231f1dc287954168c7b348697c11f62.jpg'}></img>
+        <img id='birthdayPicture'src={props.birthday.picture} alt='asdf'></img>
    <section id='birthdayInfo'>
     <p className='birthdayinfo'>{`${props.birthday.first_name} ${props.birthday.last_name}`}</p>
     <p className='birthdayinfo'>{props.birthday.email}</p>
     </section>
-    <textarea onChange={e=>setEmailMessage(e.target.value)} id='emailInput'></textarea>
+    <textarea id='messageinput'onChange={e=>setEmailMessage(e.target.value)}></textarea>
 <button type='submit' onClick={()=>handleClick(props.birthday.first_name,props.birthday.email,emailMessage)}>Submit</button>
-    {mappedPosts}
-    {emailMessage}
-    {emailResponse}
+  <article id='mappedPosts'>{mappedPosts}</article>
     </div>
 )
 }
