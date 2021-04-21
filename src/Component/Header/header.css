@@ -17,10 +17,13 @@ align-items: center;
 align-content: center;
 }
 #homeIcon{
-    height:4rem;
-    margin-left:20px;
+    position:absolute;
+    height:2.3rem;
+    margin-left:14px;
+    margin-top:-34.5px;
     display:flex;
     justify-content:flex-start;
+    z-index: 2;
 }
 #linkPeople{
     text-decoration: none;
@@ -52,13 +55,12 @@ flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     align-content: flex-end;
-    padding:16px;
 
 }
 
 
 section h2 {
-    padding:15px;
+    padding:2vh;
 }
 
 .arrow-right {
@@ -100,4 +102,19 @@ text-decoration:underline;
 #logout{
     text-decoration: none;
 
+}
+
+#appTitle{
+    position:absolute;
+    padding-left:1em;
+margin-top:6px;
+    font-family: 'Nunito Black';
+    color: rgb(88,88,88);
+    font-size: 2em;
+    z-index: 1;
+}
+
+#greeting{
+    display: flex;
+    align-items: flex-end;
 }

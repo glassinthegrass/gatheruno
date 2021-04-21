@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #loginComponent{
     display: flex;
 justify-content: center;
@@ -102,7 +95,7 @@ height:1.3rem
   color: rgb(88,88,88);
   border: 3px solid rgb(88,88,88);
 border-radius: 40px;
-margin:2px;
+margin: 3px;
 }
 #loginToggle{
 border-radius: 2px solid rgb(88,88,88);
@@ -114,6 +107,12 @@ border-left: 3px solid rgb(88,88,88);
 border-bottom: 3px solid rgb(88,88,88);
 }
 
-#ppl{
+#gatherIconLogin{
+  height:15em;
+  position: absolute;
+margin-left:-52px;
+margin-top:-250px;
 
+
+  z-index: 1;
 }

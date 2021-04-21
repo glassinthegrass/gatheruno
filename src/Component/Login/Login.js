@@ -17,11 +17,12 @@ class Login extends Component{
     }
     componentDidMount(){
         //call all groups with the people already attatched to them you god damn reta
-        this.props.getAllPeople()
+    this.props.getAllPeople()
 this.props.getBirthday()
     }
 
 render(){
+    console.log(this.props)
     const today = new Date()
   console.log(today.getDay())
     return(

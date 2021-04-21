@@ -12,9 +12,9 @@ module.exports = {
     addPost: (req, res) => {
 
         const db = req.app.get('db');
-        const { post_content,post_url,user_id, post_id } = req.body;
+        const { post_content,post_url,user_id, person_id } = req.body;
 
-        db.add_post(post_content,post_url,user_id,post_id)
+        db.add_post(post_content,post_url,user_id,person_id)
             .then(dbRes => {
                 res.status(200).send(dbRes)
             })
@@ -44,9 +44,9 @@ module.exports = {
     
     getPost: (req,res) => {
         const db = req.app.get('db');
-        const {id} =req.params
+        const {person_id} =req.params
 
-        db.get_post(id)
+        db.get_post(person_id)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))

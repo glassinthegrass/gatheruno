@@ -34,7 +34,7 @@ app.post("/api/groups", groupCtrl.addGroup);
 //people or person table
 app.get("/api/people", peopleCtrl.getPeople);
 app.post("/api/people", peopleCtrl.addPerson);
-app.get("/api/people/:id", peopleCtrl.getPerson);
+app.get("/api/people/:person_id", peopleCtrl.getPerson);
 app.put("/api/people/:id", peopleCtrl.updatePerson);
 app.delete("/api/people/:id", peopleCtrl.deletePerson);
 
@@ -42,7 +42,7 @@ app.delete("/api/people/:id", peopleCtrl.deletePerson);
 app.get("/api/posts", postCtrl.getPosts);
 app.post("/api/posts", postCtrl.addPost);
 
-app.get("/api/posts/:id", postCtrl.getPost);
+app.get("/api/posts/:person_id", postCtrl.getPost);
 app.put("/api/posts/:id", postCtrl.editPost);
 app.delete("/api/posts/:id", postCtrl.deletePost);
 
@@ -56,7 +56,7 @@ app.get("/auth/profile", authCtrl.getProfile);
 // Birthdays
 app.get("/api/birthday", birthdayCtrl.getBirthday);
 app.post("/api/email", birthdayCtrl.sendEmail);
-app.get("/api/email", birthdayCtrl.getEmails);
+app.post("/api/birthday-email", birthdayCtrl.sendEmail);
 
 massive({
   connectionString: CONNECTION_STRING,

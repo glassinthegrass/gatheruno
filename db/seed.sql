@@ -16,7 +16,8 @@ CREATE TABLE users(
     email VARCHAR(100) NOT NULL,
     hash VARCHAR(100) NOT NULL,
     admin BOOL default false,
-    phone_number INT
+    phone_number INT,
+    profile_picture VARCHAR(5000)
 );
 
 CREATE TABLE post(

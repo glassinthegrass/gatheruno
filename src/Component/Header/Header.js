@@ -26,9 +26,11 @@ class Header extends Component{
           id='homeIcon'
         />
       </Link>
-      {userReducer.user ? <h2>{`Hi ${userReducer.user.first_name}!`}</h2> :<> </> }
-      </div>
 
+
+      {userReducer.user ? <h2 id='greeting'>{`Hi ${userReducer.user.first_name}!`}</h2> :<> </> }
+      </div>
+<h1 id='appTitle'>Gather</h1>
 
       <section id='routes'>
 <Link id='linkPeople' to='/birthdays'>
