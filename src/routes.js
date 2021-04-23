@@ -11,7 +11,7 @@ import Groups from './Component/Groups/Groups'
 export default (
   <Switch>
     <Route exact path="/"  render={()=><Login/> } /> 
-    <Route path="/groups/" render={() =><Groups />}/>
+    <Route exact path="/groups/" render={() =><Groups />}/>
     <Route path="/groups/people" render={() =><GroupPeople />}/>
     <Route path="/people/:id" render={() =><People />}/>
     <Route path="/birthdays" render={() =><Birthday />}/>

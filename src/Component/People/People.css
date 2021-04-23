@@ -1,5 +1,6 @@
 #person_pic{
-    width:3rem; 
+max-width: 14vh; 
+
 }
 
 #cardHeader{
@@ -10,20 +11,25 @@ justify-content: flex-start;
 font-size: small;
 margin:3px;
 padding:3px;
-
 }
 
 
 #cardAll{
 background-color:rgb(252,219,166);
-font-size: small;
-margin:3px;
+width: 50vh;
+margin:0.8rem;
 border: 5px inset rgb(188,175,101);
 box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
+
 }
 
 #cardAll:hover{
+transform: scale(1.03);
+}
 
-    transform: scale(1.1);
+#mappedPerson{
+ height: 91vh; 
+ overflow: scroll;
+ z-index: 1;
 }

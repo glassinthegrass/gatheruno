@@ -1,14 +1,15 @@
 #all{
   box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
+z-index: 1;
 }
 #loginComponent{
     display: flex;
 justify-content: center;
 align-content: center;
 align-items: center;
-height: 90vh;
-background-color:rgb(242,230,207);
+height: 91vh;
+z-index: 1;
 box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
 }
@@ -27,6 +28,7 @@ border-top:3px solid rgb(88,88,88);
 border-right:3px solid rgb(88,88,88);
 box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 0px 0px;
+z-index: 1;
 }
 
 #toggles{
@@ -34,6 +36,7 @@ border-radius: 10px 10px 0px 0px;
     flex-direction: row;
     box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
     border-radius: 10px 10px 10px 10px;
+    z-index: 1;
 }
 
 #loginButton{
@@ -42,18 +45,18 @@ width:50%;
 text-align: center;
 background-color: rgb(242, 230, 207);
 color: rgb(88,88,88);
-border: 3px solid rgb(88,88,88);
+z-index: 1;
 border-radius: 40px;
   box-shadow: 10px 0px 13px -12px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
 }
 #loginButton:hover{
-
+  z-index: 1;
   transform: scale(1.03);
 }
 
 #registerToggle{
-  border-radius: 2px solid rgb(88,88,88);
+
   width:50%;
   text-align: center;
   background-color: rgb(252,219,166);
@@ -62,6 +65,7 @@ border-radius: 10px 10px 10px 10px;
   border-bottom: 3px solid rgb(88,88,88);
   border-right: 3px solid rgb(88,88,88);
 border-radius: 0px 0px 10px 0px;
+z-index: 1;
 }
 #registerWindowComponent{
 display:flex;
@@ -72,6 +76,7 @@ border-left:3px solid rgb(88,88,88);
 border-top:3px solid rgb(88,88,88);
 border-right:3px solid rgb(88,88,88);
 border-radius: 10px 10px 0px 0px;
+z-index: 1;
 }
 #registerSubmit{
     text-align: center;
@@ -81,10 +86,11 @@ border-radius: 10px 10px 0px 0px;
 border-radius: 40px;
 box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
+z-index: 1;
 }
 
 #registerSubmit:hover{
-
+  z-index: 1;
   transform: scale(1.03);
 }
 .regInput{
@@ -94,6 +100,7 @@ border-radius: 10px 10px 10px 10px;
   color: rgb(88,88,88);
   border: 3px solid rgb(88,88,88);
 border-radius: 40px;
+z-index: 1;
 }
 .buttonsBox{
 height:2rem;
@@ -102,10 +109,10 @@ flex-direction: row;
 justify-content: space-evenly;
 align-items: center;
 align-content: center;
-
+z-index: 1;
 }
 .buttonsBox:hover{
-
+  z-index: 1;
   transform: scale(1.03);
 }
 
@@ -115,7 +122,8 @@ align-content: center;
   color: rgb(88,88,88);
   border: 3px solid rgb(88,88,88);
 border-radius: 40px;
-height:1.3rem
+height:1.3rem;
+z-index: 1;
 }
 #logpasswordInput{
     height:1.3rem;
@@ -125,6 +133,7 @@ height:1.3rem
   border: 3px solid rgb(88,88,88);
 border-radius: 40px;
 margin: 3px;
+z-index: 1;
 }
 #loginToggle{
 border-radius: 2px solid rgb(88,88,88);
@@ -135,6 +144,7 @@ color: rgb(88,88,88);
 border-left: 3px solid rgb(88,88,88);
 border-bottom: 3px solid rgb(88,88,88);
 border-radius: 0px 0px 0px 10px;
+z-index: 1;
 }
 
 
@@ -145,5 +155,13 @@ border-radius: 0px 0px 0px 10px;
 margin-left:-52px;
 margin-top:-250px;
   z-index: 1;
-  
+}
+#beewithline{
+width: 80vw;
+  position:absolute;
+  z-index: 0;
+}
+#ppl{
+  z-index: 1;
+
 }

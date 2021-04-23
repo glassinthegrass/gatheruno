@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    z-index: 1;
   }
 #profileText{
 height:3rem;
@@ -16,6 +17,7 @@ display:flex;
 justify-content: center;
 align-items: center;
 align-content: center;
+z-index: 1;
 }
 #homeIcon{
     position:absolute;
@@ -24,23 +26,26 @@ align-content: center;
     margin-top:-34.5px;
     display:flex;
     justify-content:flex-start;
-    z-index: 2;
+    z-index:1;
 }
 #linkPeople{
     font-family: 'Nunito SemiBold';
     text-decoration: none;
-    color:black
+    color:black;
+    z-index: 1;
 }
 #linkPeople:hover{
     font-family: 'Nunito SemiBold';
     text-decoration:underline;
+    z-index: 1;
 }
 
 #profileLink{
     font-family: 'Nunito SemiBold';
     display:none;
     background-color: rgba(252, 142, 52, 0.792);
-    position:absolute
+    position:absolute;
+    z-index: 1;
 }
 
 #profileToggle:hover #profileLink{
@@ -50,7 +55,7 @@ align-content: center;
 align-items: center;
 align-content: center;
 flex-direction: column;
-
+z-index: 1;
 }
 
 
@@ -62,6 +67,7 @@ flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     align-content: flex-end;
+    z-index: 1;
 
 }
 
@@ -69,6 +75,7 @@ flex-direction: column;
 section h2 {
     color:rgb(88,88,88);
     padding:2vh;
+    z-index: 1;
 }
 
 .arrow-right {
@@ -78,6 +85,7 @@ section h2 {
   border-bottom: 10px solid transparent;
   margin-left:5px;
   margin-right:10px;
+  z-index: 1;
   border-left: 10px solid rgb(242, 230, 207);
 }
 
@@ -89,7 +97,7 @@ section h2 {
   margin-right: 5px;
   margin-left:10px;
   border-right:10px solid rgb(242, 230, 207);
-  
+  z-index: 1;
 }
 
 
@@ -97,19 +105,22 @@ section h2 {
     display:flex;
     width: 3rem;
     height:3rem;
+    z-index: 1;
 
 }
 
 #linkGroups{
     text-decoration: none;
+    z-index: 1;
 color:rgb(88,88,88);
 }
 #linkGroups:hover{
+    z-index: 1;
 text-decoration:underline;
 }
 #logout{
     text-decoration: none;
-
+    z-index: 1;
 }
 
 #appTitle{
@@ -129,5 +140,16 @@ margin-top:6px;
     align-items: flex-end;
     margin-top:25px;
     margin-left: 35px;
-color:rgb(88,88,88)
+color:rgb(88,88,88);
+z-index: 1;
 }
+
+.arrow-left:hover{
+    z-index: 1;
+    transform: scale(1.3);
+  }
+
+  .arrow-right:hover{
+z-index: 1;
+    transform: scale(1.3);
+  }

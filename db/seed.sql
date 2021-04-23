@@ -29,6 +29,7 @@ CREATE TABLE post(
     person_id INT,
     FOREIGN KEY (person_id) REFERENCES person(person_id)
     );
+    
 CREATE TABLE emails(
     email_id SERIAL PRIMARY KEY,
     email_text TEXT,
@@ -36,23 +37,10 @@ CREATE TABLE emails(
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
 );
-CREATE TABLE user_post_person(
-    user_post_person_id SERIAL PRIMARY KEY,
-    
-    post_id INT SERIAL,
-    
-);
 
-CREATE TABLE person_user(
-    person_user_id SERIAL PRIMARY KEY,
-    person_id INT,
-    FOREIGN KEY (person_id) REFERENCES person(person_id),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
 CREATE TABLE groups(
     group_id SERIAL PRIMARY KEY,
+    group_name VARCHAR(200),
 person_id INT,
-FOREIGN KEY (person_id) REFERENCES person(person_id),
-group_name VARCHAR(200)
+FOREIGN KEY (person_id) REFERENCES person(person_id)
 );

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { requestUser, logoutUser } from "../../ducks/userReducer";
 import { Link, useHistory } from "react-router-dom";
-
 import bee from "../Login/BeeLogoFull.png";
 import "./header.css";
 
@@ -16,10 +15,13 @@ const Header = (props) => {
   const handleClick = () => {
     history.push("/");
   };
-
+useEffect(()=>{
+  if(!props.userReducer.user){
+    history.push("/")
+  }},)
   const { userReducer } = props;
-
   return (
+    
     <header id="header">
       <div>
         <img onClick={handleClick} src={bee} alt="logo" id="homeIcon" />
@@ -54,8 +56,8 @@ const Header = (props) => {
           </h2>
         </div>
         <nav id="backandforth">
-          <div className="arrow-left"></div>
-          <div className="arrow-right"></div>
+          <div onClick={()=>history.goBack()} className="arrow-left"></div>
+          <div onClick={()=>history.goForward()} className="arrow-right"></div>
         </nav>
       </section>
     </header>

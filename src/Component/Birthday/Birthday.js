@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import {useHistory} from 'react-router-dom'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {requestUser} from '../../ducks/userReducer'
 import {getBirthday} from '../../ducks/personReducer'
@@ -6,16 +7,20 @@ import BirthdayView from './BirthdayView'
 import './Birthday.css'
 
 
-class Birthday extends Component {
-componentDidMount(){
-    this.props.getBirthday()
-    console.log()
-}
 
+const Birthday=(props)=>{
+let history = useHistory()
 
-render(){   
-    console.log(this.props)
-const {birthdays}= this.props.personReducer
+useEffect(()=>{
+    props.getBirthday()
+
+    if(!props.userReducer.isLoggedIn){
+        history.push('/')
+        }
+},[])
+
+const {birthdays}= props.personReducer
+
 let mappedBirthday = birthdays.map((birthday, i) => {
     return(
     <BirthdayView id='birthdayViewComponent'key={i} birthday={birthday} render={()=> <BirthdayView/>}/>
@@ -26,7 +31,6 @@ let mappedBirthday = birthdays.map((birthday, i) => {
                 {mappedBirthday}
         </div>
     )
-}
 }
 const mapStateToProps = reduxState => {
     return reduxState

@@ -28,7 +28,7 @@ app.use(
 
 app.get("/api/groups", groupCtrl.getGroups);
 app.get("/api/groupNames", groupCtrl.getGroupNames);
-app.get("/api/group/:name", groupCtrl.getPeopleInGroup);
+app.get("/api/groups/:group_name", groupCtrl.getPeopleInGroup);
 app.post("/api/groups", groupCtrl.addGroup);
 
 //people or person table
@@ -43,6 +43,7 @@ app.get("/api/posts", postCtrl.getPosts);
 app.post("/api/posts", postCtrl.addPost);
 
 app.get("/api/posts/:person_id", postCtrl.getPost);
+app.get("/api/posts/:user_id", postCtrl.getPostProfile);
 app.put("/api/posts/:id", postCtrl.editPost);
 app.delete("/api/posts/:id", postCtrl.deletePost);
 
@@ -51,7 +52,7 @@ app.get("/auth/user", authCtrl.getUser);
 app.post("/api/register", authenticateUser.register);
 app.post("/auth/login", authCtrl.login);
 app.delete("/auth/logout", authCtrl.logout);
-app.get("/auth/profile", authCtrl.getProfile);
+app.get("/auth/profile/:email", authCtrl.getProfile);
 
 // Birthdays
 app.get("/api/birthday", birthdayCtrl.getBirthday);

@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../ducks/userReducer";
-import Bee from '../Login/BeeLogoFull.png'
 import "./Login.css";
 
 class LoginWindow extends Component {
@@ -53,7 +52,7 @@ class LoginWindow extends Component {
         <div>
           {this.state.login ? (
             <section id="loginWindowComponent">
-              <h2><img id='gatherIconLogin' src={Bee} alt='gather Logo'></img>See What's the Buzz</h2>
+
               <input
                 id="logemailInput"
                 onChange={(e) => this.setState({ loginEmail: e.target.value })}

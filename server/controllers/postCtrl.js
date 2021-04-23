@@ -42,6 +42,17 @@ module.exports = {
     },
 
     
+    getPostProfile: (req,res) => {
+        const db = req.app.get('db');
+        const {user_id} =req.params
+
+        db.get_post_profile(user_id)
+        .then(dbRes => {
+            res.status(200).send(dbRes)
+        }).catch(err => console.log(err))
+    },
+
+    
     getPost: (req,res) => {
         const db = req.app.get('db');
         const {person_id} =req.params

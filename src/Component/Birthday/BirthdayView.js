@@ -15,7 +15,7 @@ useEffect(()=>{
 axios.get(`/api/posts/${person_id}`).then(res =>{
     setPosts(res.data)
 }).catch(err=>console.log(err))
-},[props.birthday]);
+},[]);
 
 const handleClick=(name,email,emailMessage)=>{
 axios.post('/api/email',{name,email,emailMessage}).then(res=>console.log(res.data)).catch(err =>console.log(err))

@@ -1,44 +1,77 @@
 import axios from 'axios';
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux'
 import {requestUser} from '../../ducks/userReducer'
 import SingleGroup from './SingleGroup';
 import './Groups.css'
-
-
-class Groups extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            groups:[],
-            groupName:''
-
-        }
-    }    
-    componentDidMount(){
-    axios.get('/api/groupNames').then(res =>{
-        this.setState({groups:res.data})
-        console.log(res.data)
-
-    })
-
+import BeeWithLine from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png'
+import {useHistory} from 'react-router-dom'
+const Groups =(props) =>{
+let history = useHistory()
+    const [groups,setGroups] =useState([])
+   useEffect(()=>{
+axios.get('/api/groupNames').then(res => setGroups(res.data)).catch(err=>console.log(err))
+if(!props.userReducer.isLoggedIn){
+history.push('/')
 }
-render(){   
-console.log(this.props)
-    const {groups}= this.state
+},)
+
     let mappedgroups= groups.map((group, i) => {
+
         return(
-        <SingleGroup id='singleGroup' key={i} group={group}  render={()=> <SingleGroup/>}/>
+        <SingleGroup id='singleGroup' key={i} group={group} render={()=> <SingleGroup />}/>
       )
-    });
+    })
     return(
+
         <div id='groups'>
-        {mappedgroups}
-        </div>
+            {mappedgroups}
+            <img id='beewithlinegroups'src={BeeWithLine} alt='beewithline'></img>
+            </div>
+            
+
+
     )
 }
-}
+
+
 const mapStateToProps = reduxState => {
     return reduxState
 }
 export default connect(mapStateToProps,{requestUser})(Groups)
+// class Groups extends Component {
+//     constructor(props){
+//         super(props)
+//         this.state={
+//             groups:[],
+//             groupName:''
+
+//         }
+//     }    
+//     componentDidMount(){
+//     axios.get('/api/groupNames').then(res =>{
+//         this.setState({groups:res.data})
+//         console.log(res.data)
+
+//     })
+
+// }
+// render(){   
+// console.log(this.props)
+//     const {groups}= this.state
+//     let mappedgroups= groups.map((group, i) => {
+//         return(
+//         <SingleGroup id='singleGroup' key={i} group={group}  render={()=> <SingleGroup/>}/>
+//       )
+//     });
+//     return(
+//         <div id='groups'>
+//         {mappedgroups}
+//         </div>
+//     )
+// }
+// }
+// const mapStateToProps = reduxState => {
+//     return reduxState
+// }
+// export default connect(mapStateToProps,{requestUser})(Groups)

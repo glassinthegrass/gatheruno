@@ -17,9 +17,8 @@ setCardToggle(!cardToggle)
        
        </div>
        {cardToggle ? <></>:<section id='cardExtension' onClick={()=>handleClick()} ><br/><p>{props.person.email}</p>
-       <p>{props.person.birthday}</p>
+       <p>{props.person.birthday}</p><br/>
        <p>{props.person.message}</p>
-       
        </section>}
 
       </div>

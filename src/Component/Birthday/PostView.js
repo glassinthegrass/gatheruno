@@ -13,11 +13,14 @@ console.log(post)
         <p id='postUsername'>{`${post.userfirstname} ${post.userlastname}`}</p>
         </div>
         <div id='person'>
-        <p id='postUsername'>{`${post.personfirstname} ${post.userlastname}`}</p>
-        <img id='postuserPicture' src={post.userpicture} alt='userPicture'></img>
+        <p id='postUsername'>{`${post.personfirstname} ${post.personlastname}`}</p>
+        <img id='postuserPicture' src={post.picture} alt='userPicture'></img>
         </div>
+       
     </section>    
-    {/* <img src={post.post_url} alt='help'></img> */}
+
+    
+    <img id='postImg' src={post.post_url} alt='a'></img>
     <p id='postMessage'>{post.post_content}</p>
         </article>
 

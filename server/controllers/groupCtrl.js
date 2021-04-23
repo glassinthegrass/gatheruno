@@ -28,7 +28,7 @@ module.exports = {
   },
   getPeopleInGroup: (req, res) => {
     const db = req.app.get("db");
-    const { group_name } = req.body;
+    const { group_name } = req.params;
     db.get_people_by_group(group_name)
       .then((dbRes) => {
         res.status(200).send(dbRes);

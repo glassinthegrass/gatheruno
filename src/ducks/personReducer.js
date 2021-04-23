@@ -24,10 +24,11 @@ export const getBirthday = () => {
     payload: bday,
   };
 };
-export const getSingleGroup = (data) => {
+export const getSingleGroup = (group_name) => {
+  let group = axios.get(`/api/groups/${group_name}`).then((res=>res.data))
   return {
     type: GET_SINGLE_GROUP,
-    payload: data
+    payload: group
   };
 };
 

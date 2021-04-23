@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
 import {HashRouter} from 'react-router-dom';
+import {createBrowserHistory} from "history";
 import store from './ducks/store';
+const customHistory = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
+      <HashRouter history={customHistory}>
     <App />
     </HashRouter>
     </Provider>

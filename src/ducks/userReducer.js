@@ -1,8 +1,8 @@
 // INITIAL STATE
 import axios from 'axios'
 const initialState = {
-    user: '',
-    profile:'',
+    user: [],
+    profile:[],
     isLoggedIn:false
 
 }
@@ -17,40 +17,39 @@ const LOGOUT_USER = 'LOGOUT_USER';
 
 // ACTION CREATORS
 export const loginUser=(email,password) => {
-    let data = axios.post('/auth/login', {email,password}).then(res => res.data)
+    let login = axios.post('/auth/login', {email,password}).then(res => res.data)
     return {
         type: LOGIN_USER,
-        payload: data
+        payload: login
     }
 }
 export const registerUser=(first_name,last_name,email,password) => {
-let data= axios.post('/auth/register', {first_name,last_name,email,password}).then(res => res.data).catch(err=>console.log(err))
+let register= axios.post('/auth/register', {first_name,last_name,email,password}).then(res => res.data).catch(err=>console.log(err))
     return {
         type: REGISTER_USER,
-        payload: data
+        payload: register
     }
 }
 export const requestUser= () => {
-    let data = axios.get('/auth/user').then(res => res.data).catch(err=>console.log(err))
+    let request = axios.get('/auth/user').then(res => res.data).catch(err=>console.log(err))
     return {
         type: REQUEST_USER,
-        payload: data
+        payload: request
     }
 }
-export const requestProfile= () => {
-    let data = axios.get('/auth/profile').then(res => res.data).catch(err=>console.log(err))
+export const requestProfile = (email) => {
+    let profile = axios.get(`/auth/profile/${email}`).then(res => res.data).catch(err=>console.log(err))
     return {
         type: REQUEST_PROFILE,
-        payload: data
+        payload: profile
     }
 }
 
 export const logoutUser=() => {
-  let data = axios.delete('/auth/logout').then(res => res.data).catch(err=>console.log(err))
-//   let data =axios.get('/auth/user').then(res=> res.data) 
+  let logout = axios.delete('/auth/logout').then(res => res.data).catch(err=>console.log(err))
     return {
         type: LOGOUT_USER,
-        payload: data
+        payload: logout
     }
 }
 
@@ -81,7 +80,6 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
               profile: action.payload,
-              isLoggedIn:true
             }
         case REQUEST_PROFILE + '_PENDING':
             return {

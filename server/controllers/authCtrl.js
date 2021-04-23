@@ -27,7 +27,7 @@ module.exports = {
             
        } catch(err) {
            console.log(err)
-          return res.sendStatus(500)
+        res.sendStatus(500)
        }
   },
     logout: (req, res) => {
@@ -43,17 +43,17 @@ module.exports = {
              return res.sendStatus(401)
          }
     },
+    
     getProfile: async (req,res) => {
     const db = req.app.get("db")    
-const {user}= req.session  
+const {email} =req.params
         try{
-            const [existingUser] = await db.get_user_by_email(user.email)
-
-            res.status(200).send(existingUser)
+            let profile = await db.get_profile_by_email(email)           
+            res.status(200).send(profile)
     }
     catch(err){
         console.log(err)
         res.sendStatus(500)
     }
-},
+}
 }
