@@ -52,7 +52,10 @@ class LoginWindow extends Component {
         <div>
           {this.state.login ? (
             <section id="loginWindowComponent">
-
+              <section id='loginHeadline'>
+<h1 id='headline' ><strong>GATHER</strong></h1>
+<h3 id='tagline' >a place for friends</h3>
+</section>
               <input
                 id="logemailInput"
                 onChange={(e) => this.setState({ loginEmail: e.target.value })}

@@ -33,3 +33,7 @@ transform: scale(1.03);
  overflow: scroll;
  z-index: 1;
 }
+
+#hexagon{
+    height: 5rem;
+}

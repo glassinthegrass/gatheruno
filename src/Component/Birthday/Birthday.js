@@ -28,6 +28,7 @@ let mappedBirthday = birthdays.map((birthday, i) => {
 });
     return(
         <div id='birthday'>
+
                 {mappedBirthday}
         </div>
     )

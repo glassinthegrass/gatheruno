@@ -5,10 +5,12 @@
 background-color: rgb(241,170,111);
 width:10rem;
 height:10rem;
-margin: 1vw;
-box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
+margin: 0.5rem;
+
 z-index: 1;
-padding:3px;
+padding:5px;
+box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+border-radius: 10px 10px 0px 0px;
 }
 #groups{
 display:flex;
@@ -17,17 +19,28 @@ flex-direction: row;
 justify-content:center;
 align-items: center;
 align-content: center;
-margin-top: 5%;
-margin-bottom: 5%;
-margin-left:auto;
-margin-right: auto;
+
+
 z-index: 1;
-width: 80vw;
+height: 100vh;
+}
+#addGroup{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+background-color: rgb(241,170,111);
+width:10rem;
+height:10rem;
+margin: 1vw;
+z-index: 1;
+padding:3px;
+box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+border-radius: 10px 10px 0px 0px;
 }
 
 #beewithlinegroups{
 width: 100vw;
-margin: auto;
+
 margin-top: 8vh;
 margin-left:4vw;
     position:absolute;
@@ -43,4 +56,89 @@ margin-left:4vw;
      margin-left:5%;
      margin-right:5%;
 
+}
+.square{
+    display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+    height: 40%;
+    width: 40%;
+
+}
+
+#topLeft{
+    margin-left:10px;
+    margin-top:8px;
+    border-left: 3px double rgb(88,88,88);
+    border-top:3px double rgb(88,88,88);
+}
+#bottomRight{
+    margin-top:8px;
+    margin-left:10px;
+border-right: 3px double rgb(88,88,88);
+border-bottom: 3px double rgb(88,88,88);
+}
+#topRight{
+    margin-top:8px;
+    margin-left:10px;
+border-right: 3px double rgb(88,88,88);
+border-top: 3px double rgb(88,88,88);
+}
+#bottomLeft{
+    margin-top:8px;
+    margin-left:10px;
+    border-bottom:3px double rgb(88,88,88);
+    border-left:3px double rgb(88,88,88);
+}
+#groupPicture{
+    display: flex;
+
+float:left;
+    height:6rem;
+margin-bottom:1rem;
+box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+border-radius: 10px 10px 10px 10px;
+
+}
+#groupPeople{
+    height: 100vh;   
+    margin-top:3rem;
+
+
+}
+#holder{
+    display: flex;
+    height: 6rem;
+    width: 6rem;
+background-color: #00000000;
+    border-radius: 10px 10px 10px 10px;
+    margin-top:1rem;
+    margin-left:3rem;
+
+}
+#hexagon{
+display: none;
+height: 2rem;
+position:absolute;
+border-radius: 10px 10px 10px 10px;
+margin-left:3rem;
+margin-top:-0.8rem;
+}
+#holder:hover #hexagon{
+display:block;
+    position:absolute;
+    border-radius: 10px 10px 10px 10px;
+
+}
+#name{
+    display:none;
+    font-family: 'Nunito black';
+    position:absolute;
+    z-index: 3;
+}
+#holder:hover #name{
+    display: block;
+    color: rgb(238,167,107);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

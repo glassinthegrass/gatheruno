@@ -1,10 +1,12 @@
 body{
     width: 100vw;
-font-family:'Nunito Regular', 'Nunito SemiBold', 'Nunito Black Italic', 'Nunito Light', 'Nunito Bold Italic';
+
+    font-family:'Nunito Regular', 'Nunito SemiBold', 'Nunito Light', 'Nunito Bold Italic';
+
 }
 
 .App{
-    background-image:url('./Gather_Line_with_Bee.png'),url('./Gather_honeycombs.png');
-    height:100vh;
+    background-image:url('./Gather_honeycombs.png');
+    background-repeat:repeat;
 
 }

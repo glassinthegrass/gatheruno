@@ -14,7 +14,7 @@ axios.get('/api/groupNames').then(res => setGroups(res.data)).catch(err=>console
 if(!props.userReducer.isLoggedIn){
 history.push('/')
 }
-},)
+},[])
 
     let mappedgroups= groups.map((group, i) => {
 
@@ -25,6 +25,12 @@ history.push('/')
     return(
 
         <div id='groups'>
+            <div id='addGroup'>
+                <div className='square' id='bottomRight'></div>
+                <div className='square' id='bottomLeft'></div>
+                <div className='square' id='topRight'></div>
+                <div className='square' id='topLeft'></div>
+            </div>
             {mappedgroups}
             <img id='beewithlinegroups'src={BeeWithLine} alt='beewithline'></img>
             </div>

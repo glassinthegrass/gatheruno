@@ -1,14 +1,14 @@
 #all{
   box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
-z-index: 1;
+
 }
 #loginComponent{
     display: flex;
 justify-content: center;
 align-content: center;
 align-items: center;
-height: 91vh;
+height: 100vh;
 z-index: 1;
 box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
 border-radius: 10px 10px 10px 10px;
@@ -21,7 +21,7 @@ justify-content: center;
 align-items: center;
 align-content: center;
 flex-direction: column;
-padding: 10px;
+padding: 5vw;
 background-color:rgb(252,219,166);
 border-left:3px solid rgb(88,88,88);
 border-top:3px solid rgb(88,88,88);
@@ -147,7 +147,21 @@ border-radius: 0px 0px 0px 10px;
 z-index: 1;
 }
 
+#headline{
+  font-family: 'Nunito Black';
+  font: size 100px;
+ 
+}
 
+#loginHeadline{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center; 
+  margin-bottom: 30px;
+  z-index: 1;
+}
 
 #gatherIconLogin{
   height:15em;
@@ -157,11 +171,14 @@ margin-top:-250px;
   z-index: 1;
 }
 #beewithline{
-width: 80vw;
+width: 70vw;
   position:absolute;
   z-index: 0;
 }
 #ppl{
   z-index: 1;
 
+}
+#tagline{
+  font-family: 'Nunito Light';
 }

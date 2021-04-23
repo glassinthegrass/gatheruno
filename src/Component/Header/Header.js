@@ -18,7 +18,7 @@ const Header = (props) => {
 useEffect(()=>{
   if(!props.userReducer.user){
     history.push("/")
-  }},)
+  }},[])
   const { userReducer } = props;
   return (
     

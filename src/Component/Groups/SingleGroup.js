@@ -15,7 +15,7 @@ useEffect(()=>{
 axios.get(`/api/groups/${group_name}`).then(res=>{
     setPeople(res.data)
   })
-},)
+},[])
 
 const handleClick =(group_name)=>{
 props.getSingleGroup(group_name)
