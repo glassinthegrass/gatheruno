@@ -34,8 +34,8 @@ module.exports = {
 
     deletePost: (req,res) => {
         const db = req.app.get('db');
-        const {id} = req.params
-        db.delete_post(id)
+        const {post_id} = req.params
+        db.delete_post(post_id)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))

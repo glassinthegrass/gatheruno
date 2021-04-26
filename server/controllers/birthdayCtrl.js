@@ -16,7 +16,7 @@ module.exports={
     },
      
     sendEmail: async (req, res) => {
-        const { name,email,emailMessage} = req.body
+        const { name,email,post_content} = req.body
     
     try {
           //invoke the createTransport function passing in your email information. 
@@ -33,8 +33,8 @@ module.exports={
             from: `'Jared Andersen 🥳🎈🎁' <${EMAIL}>`, //This will show up when you go into the email
             to:email,
             subject: `It's ${name}'s Birthday!`, //This will show on the subject of the email
-            text: emailMessage, //for clients with plaintext support only
-            html: `<div>${emailMessage}<div> 
+            text: post_content, //for clients with plaintext support only
+            html: `<div>${post_content}<div> 
                   <img src="cid:unique@nodemailer.com"/>`,
             attachments: [
               { //this is the attachment of the document

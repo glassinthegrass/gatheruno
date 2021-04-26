@@ -1,41 +1,66 @@
 #post{
     display:flex;
     text-align:center;
-flex-direction: column;
+    z-index: 2;
     font-family: 'Nunito Light';
     width: 25rem;
 min-height: 7rem;
-    margin-top:0.75rem;
+    margin-top:2rem;
 padding:5px 5px 5px 5px;
 box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
 border: 5px inset rgba(188, 175, 101, 0.896);
 border-radius: 10px 10px 10px 10px;
 background-color: rgb(246,232,245);
+
 }
-#post:hover{
-transform: scale(1.05);
+#postImg{
+    z-index: 3;
 }
+
+
+
+#deleteHex{
+    height:5vh;
+    width: 5vh;
+    position:absolute;
+    z-index: 4;
+    margin-left: 25rem;
+    margin-top: 1rem;
+    box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
+z-index: 0;
+    border-radius: 50px 50px 50px 50px;
+}
+#deleteHex:hover{
+    transform: scale(1.3);
+    z-index: 2;
+    }
 #postheader{
     display: flex;
 margin-left:5px;
     justify-content: space-between;
     align-items: center;
-backdrop-filter: blur(20px);
+
+    backdrop-filter: blur(20px);
+    z-index: 2;
 }
 #user{
     display: flex;
     align-items: center;
     padding-right:4px;
+    z-index: 2;
+    
 }
 #person{
     display:flex;
     align-items: center;
+    z-index: 2;
 }
 
 #postuserPicture{
     height: 2rem;
 box-shadow: 5px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
 border-radius: 50%;
+
 }
 #postMessage{
     display: flex;
@@ -44,11 +69,15 @@ border-radius: 50%;
 justify-content: center;
 align-content: center;
 position: relative;
-z-index: 1;
+z-index: 2;
+
+backdrop-filter: blur(20px);
+opacity: 0.5;
+
 }
 #line{
     height: 1rem;
     position:absolute;
-    z-index: 3;
-    margin-left:9rem;
+    z-index: 1;
+margin-left: 18vh;
 }

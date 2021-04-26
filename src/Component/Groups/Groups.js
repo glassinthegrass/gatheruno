@@ -1,31 +1,43 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux'
-import {requestUser} from '../../ducks/userReducer'
+
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { requestUser } from '../../ducks/userReducer';
+import './Groups.css';
 import SingleGroup from './SingleGroup';
-import './Groups.css'
-import BeeWithLine from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png'
-import {useHistory} from 'react-router-dom'
+import BeeWithLine from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png';
 const Groups =(props) =>{
 let history = useHistory()
-    const [groups,setGroups] =useState([])
-   useEffect(()=>{
+
+    const [groups,setGroups] = useState([])
+    const [nameInput,setNameInput] = useState([])
+    const [toggle,setToggle] =useState(true)
+
+    useEffect(()=>{
 axios.get('/api/groupNames').then(res => setGroups(res.data)).catch(err=>console.log(err))
 if(!props.userReducer.isLoggedIn){
 history.push('/')
 }
-},[])
+},[history, props.userReducer.isLoggedIn])
 
-    let mappedgroups= groups.map((group, i) => {
+const handleClick =()=>{
+    setToggle(!toggle)
+}
+const handleNewGroup=(group_name)=>{
+    console.log(group_name)
+    axios.post('/api/groups', {group_name}).then(res =>console.log(res.data)).catch(err=>console.log(err))
+  }  
 
+let mappedgroups= groups.map((group, i) => {
         return(
         <SingleGroup id='singleGroup' key={i} group={group} render={()=> <SingleGroup />}/>
       )
     })
     return(
-
-        <div id='groups'>
-            <div id='addGroup'>
+        <div>
+{toggle ?   <div id='groups'>
+            <div id='addGroup' onClick={()=>handleClick()}>
                 <div className='square' id='bottomRight'></div>
                 <div className='square' id='bottomLeft'></div>
                 <div className='square' id='topRight'></div>
@@ -33,51 +45,23 @@ history.push('/')
             </div>
             {mappedgroups}
             <img id='beewithlinegroups'src={BeeWithLine} alt='beewithline'></img>
-            </div>
-            
+            </div> : <section id='addGroupWindow'> 
+            <div  id='optionWindow'>
+<h1 onClick={()=>handleClick()}id='exitOption'>x</h1>
 
+<input id='groupNameInput'onChange={(e)=>setNameInput(e.target.value)} type='text'placeholder="Name your Group..."></input>
+<div id='createGroupButton' onClick={()=>handleNewGroup(nameInput)}>Create Group</div>
+
+
+            </div>
+            </section>} 
+
+            </div>
 
     )
 }
-
 
 const mapStateToProps = reduxState => {
     return reduxState
 }
 export default connect(mapStateToProps,{requestUser})(Groups)
-// class Groups extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state={
-//             groups:[],
-//             groupName:''
-
-//         }
-//     }    
-//     componentDidMount(){
-//     axios.get('/api/groupNames').then(res =>{
-//         this.setState({groups:res.data})
-//         console.log(res.data)
-
-//     })
-
-// }
-// render(){   
-// console.log(this.props)
-//     const {groups}= this.state
-//     let mappedgroups= groups.map((group, i) => {
-//         return(
-//         <SingleGroup id='singleGroup' key={i} group={group}  render={()=> <SingleGroup/>}/>
-//       )
-//     });
-//     return(
-//         <div id='groups'>
-//         {mappedgroups}
-//         </div>
-//     )
-// }
-// }
-// const mapStateToProps = reduxState => {
-//     return reduxState
-// }
-// export default connect(mapStateToProps,{requestUser})(Groups)

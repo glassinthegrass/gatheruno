@@ -45,7 +45,7 @@ app.post("/api/posts", postCtrl.addPost);
 app.get("/api/posts/:person_id", postCtrl.getPost);
 app.get("/api/posts/:user_id", postCtrl.getPostProfile);
 app.put("/api/posts/:id", postCtrl.editPost);
-app.delete("/api/posts/:id", postCtrl.deletePost);
+app.delete("/api/posts/:post_id", postCtrl.deletePost);
 
 //COOKIES/auth
 app.get("/auth/user", authCtrl.getUser);

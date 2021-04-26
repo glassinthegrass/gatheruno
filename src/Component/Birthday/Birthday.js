@@ -5,7 +5,7 @@ import {requestUser} from '../../ducks/userReducer'
 import {getBirthday} from '../../ducks/personReducer'
 import BirthdayView from './BirthdayView'
 import './Birthday.css'
-
+import beewithline from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png'
 
 
 const Birthday=(props)=>{
@@ -28,7 +28,7 @@ let mappedBirthday = birthdays.map((birthday, i) => {
 });
     return(
         <div id='birthday'>
-
+<img id='bee' src={beewithline} alt='A'></img>
                 {mappedBirthday}
         </div>
     )

@@ -1,20 +1,14 @@
 #holder{
+height: fit-content;
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: rgba(252, 142, 52, 0.792);
 
 }
 #mainProfile{
-    background-color: rgb(240,230,209);
-    height:90vh;
-    width:90%;
-    display: flex;
-    justify-content: flex-start;
-flex-direction: column;
-border: 5px inset rgb(188,175,101);
-box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
-border-radius: 10px 10px 10px 10px;
+
+margin-left:30rem;
+
 }
 
 #picInfo{
@@ -25,7 +19,7 @@ border-radius: 10px 10px 10px 10px;
 #profilePic{
     width: 30vh;
     height:30vh;
-    background-color: rgb(186,147,68);
+
     margin-left:2.5vh;
     margin-top:2.5vh;
 box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;

@@ -22,7 +22,7 @@ useEffect(()=>{
 
 let mappedPosts = props.userReducer.profile.map((post, i) => {
     return(
-    <Post id='PostViewComponent'key={i} post={post} />
+    <Post id='postComponent'key={i} post={post} />
   )
 })
 

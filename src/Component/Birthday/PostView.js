@@ -1,11 +1,28 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import './PostView.css'
+import BeePiecesWing from '../../BeePiecesWing.png'
 import BeeLine from '/Users/j-mac/devMountain/gather/src/Gather_Dotted_Line.png'
+import axios from 'axios'
 const PostView =(props)=> {
+
 const {post} = props
 
-console.log(post)
+const [ toggle,setToggle]=useState(false)
+
+useEffect(()=>{
+
+},[])
+
+
+
+const handleDelete =(post_id)=>{
+    axios.delete(`/api/posts/${post_id}`).then(res=>console.log(res.data)).catch(err=>console.log(err))
+setToggle(!toggle)
+}
+console.log(post.post_id)
     return(
+            <article>
+                <img id='deleteHex'onClick={()=>handleDelete(post.post_id)} src={BeePiecesWing} alt='delete'></img>
             <article id='post'>
             <section id='postheader'>
             <div id='user'>
@@ -23,6 +40,7 @@ console.log(post)
     
     <img id='postImg' src={post.post_url} alt='a'></img>
     <p id='postMessage'>{post.post_content}</p>
+    </article>
         </article>
 
 

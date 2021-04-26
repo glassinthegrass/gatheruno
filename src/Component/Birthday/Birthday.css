@@ -1,13 +1,19 @@
-
+#bee{
+    height: 80vh;
+    position:absolute;
+    z-index: 1;
+    margin-top:10rem;
+    transform: rotate(260deg);
+}
 #birthdayview{
     display: flex;
     flex-direction: column;
-
+width:54vw;
 justify-content: center;
 align-items: center;
 align-content: center;
-
-
+z-index: 2;
+margin: auto;
 }
 
 #birthdayPicture{
@@ -17,19 +23,32 @@ align-content: center;
     border: 5px inset rgb(188,175,101);
     box-shadow: 10px 0px 13px -7px #000000, 0px 7px 13px -7px #000000;
     border-radius: 10px 10px 10px 10px;
+    z-index: 2;
 }
 
 #birthdayInfo{
     padding:10px;
 text-align: center;
+z-index: 2;
 }
 
-#emailInput{
-    height:5vh;
-    width:25rem;
+#urlinput{
+    box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 2;
 }
 
 #messageinput{
     box-shadow: 10px 0px 13px -7px #897b7b, 0px 7px 13px -7px #000000;
     border-radius: 10px 10px 10px 10px;
+    z-index: 2;
+}
+
+#mappedPosts{
+    display: flex;
+    flex-direction: column-reverse;
+justify-content: center;
+align-items: center;
+align-content: center;
+z-index: 2;
 }

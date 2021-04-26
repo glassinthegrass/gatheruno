@@ -15,15 +15,16 @@ useEffect(()=>{
 axios.get(`/api/groups/${group_name}`).then(res=>{
     setPeople(res.data)
   })
-},[])
+},[group_name])
+
 
 const handleClick =(group_name)=>{
 props.getSingleGroup(group_name)
+
 history.push('/groups/people')
 }
-console.log(people)
-let mappedpeople= people.map((person, i) => {
 
+let mappedpeople= people.map((person, i) => {
   return(
   <img id='personPic'src={person.picture} alt={i} key={i}></img>
 )

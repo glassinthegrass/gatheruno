@@ -1,6 +1,7 @@
 module.exports = {
   getGroups: (req, res) => {
     const db = req.app.get("db");
+
     db.get_all_groups()
       .then((dbRes) => {
         res.status(200).send(dbRes);
@@ -18,9 +19,9 @@ module.exports = {
 
   addGroup: (req, res) => {
     const db = req.app.get("db");
-    const { person_id, group_name } = req.body;
+    const { group_name } = req.body;
 
-    db.add_group(person_id, group_name)
+    db.add_group(group_name)
       .then((dbRes) => {
         res.status(200).send(dbRes);
       })
