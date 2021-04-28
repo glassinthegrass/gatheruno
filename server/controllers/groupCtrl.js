@@ -36,10 +36,10 @@ module.exports = {
       })
       .catch((err) => console.log(err));
   },
-  deletePerson: (req, res) => {
+  deleteGroup: (req, res) => {
     const db = req.app.get("db");
-    const { id } = req.params;
-    db.delete_person(id)
+    const { group_name } = req.params;
+    db.delete_group(group_name)
       .then((dbRes) => {
         res.status(200).send(dbRes);
       })

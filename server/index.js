@@ -30,6 +30,7 @@ app.get("/api/groups", groupCtrl.getGroups);
 app.get("/api/groupNames", groupCtrl.getGroupNames);
 app.get("/api/groups/:group_name", groupCtrl.getPeopleInGroup);
 app.post("/api/groups", groupCtrl.addGroup);
+app.delete("/api/groups/:group_name", groupCtrl.deleteGroup);
 
 //people or person table
 app.get("/api/people", peopleCtrl.getPeople);

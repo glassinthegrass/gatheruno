@@ -12,7 +12,7 @@ const GroupPeople =(props)=>{
     return(
     
     <div id='holder'>
-    <img id='groupPicture'src={person.picture} alt={i} key={i}></img>
+    <img id='groupPicture'src={person.picture} alt={i} ></img>
 <img id='hexagon' src={BeePiecesWing} alt={i}></img>
 <h1 id='name'>{person.first_name}</h1>
     </div>
@@ -22,6 +22,7 @@ const GroupPeople =(props)=>{
       <div id='justify'>
         <div id='groupPeople'>
           <div id='addPerson'></div>
+          <div id='deleteGroup'></div>
           {mappedpeople}
           </div>
       </div>

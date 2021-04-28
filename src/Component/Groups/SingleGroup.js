@@ -18,11 +18,18 @@ axios.get(`/api/groups/${group_name}`).then(res=>{
 },[group_name])
 
 
-const handleClick =(group_name)=>{
+const handleAdd =(group_name)=>{
 props.getSingleGroup(group_name)
 
 history.push('/groups/people')
 }
+
+const handleDelete =(group_name)=>{
+
+axios.delete(`/api/groups/${group_name}`).then(res => console.log(res.data)).catch(err =>console.log(err)) 
+  history.push('/groups')
+}
+
 
 let mappedpeople= people.map((person, i) => {
   return(
@@ -31,9 +38,13 @@ let mappedpeople= people.map((person, i) => {
 })
 
     return (
-      <div onClick={() => handleClick(group_name)} id="group">
+
+      <div onClick={() => handleAdd(group_name)} id="group">
+        <div onClick={()=>handleDelete(group_name)} id='deleteGroup'>x</div>
         {mappedpeople}
+        
       </div>
+
     );
   }
 

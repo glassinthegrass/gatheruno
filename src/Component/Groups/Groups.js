@@ -19,7 +19,7 @@ axios.get('/api/groupNames').then(res => setGroups(res.data)).catch(err=>console
 if(!props.userReducer.isLoggedIn){
 history.push('/')
 }
-},[history, props.userReducer.isLoggedIn])
+},[history,props.personReducer, props.userReducer.isLoggedIn])
 
 const handleClick =()=>{
     setToggle(!toggle)

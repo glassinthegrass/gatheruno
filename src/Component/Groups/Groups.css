@@ -216,3 +216,14 @@ border-radius: 10px 10px 10px 10px;
     display: flex;
 flex-direction: column;
 }
+
+#deleteGroup{
+    position:absolute;
+    z-index: 4;
+    width:1rem;
+    height: 1rem;
+}
+
+#deleteGroup:hover{
+    transform: scale(1.3);
+}

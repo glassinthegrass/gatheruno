@@ -9,7 +9,7 @@ const Header = (props) => {
   const handleLogout = () => {
     props.logoutUser();
   };
-
+console.log(props)
   let history = useHistory();
 
   const handleClick = () => {
