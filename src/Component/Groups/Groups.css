@@ -137,7 +137,7 @@ display:block;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #addGroupWindow{
-    background-image:url('/Users/j-mac/devMountain/gather/src/Gather_honeycombs.png');
+    background-image:url('/src/Component/Gather_honeycombs.png');
     background-repeat:repeat;
 height: 90vh;
 z-index: -1;

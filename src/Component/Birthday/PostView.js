@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './PostView.css'
-import BeePiecesWing from '../../BeePiecesWing.png'
-import BeeLine from '/Users/j-mac/devMountain/gather/src/Gather_Dotted_Line.png'
+import BeePiecesWing from '../BeePiecesWing.png'
+import BeeLine from '../Gather_Dotted_Line.png'
 import axios from 'axios'
 const PostView =(props)=> {
 

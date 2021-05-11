@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './People.css'
-import BeePiecesWing from '/Users/j-mac/devMountain/gather/src/BeePiecesWing.png'
+import BeePiecesWing from '../BeePiecesWing.png'
 
 const Person=(props)=>{
 const [cardToggle,setCardToggle] =useState(true)

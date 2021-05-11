@@ -5,7 +5,7 @@ import {requestUser} from '../../ducks/userReducer'
 import {getBirthday} from '../../ducks/personReducer'
 import BirthdayView from './BirthdayView'
 import './Birthday.css'
-import beewithline from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png'
+import beewithline from '../Gather_Line_with_Bee.png'
 
 
 const Birthday=(props)=>{

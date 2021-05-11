@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { requestUser } from '../../ducks/userReducer';
 import './Groups.css';
 import SingleGroup from './SingleGroup';
-import BeeWithLine from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png';
+import BeeWithLine from '../Gather_Line_with_Bee.png';
 const Groups =(props) =>{
 let history = useHistory()
 

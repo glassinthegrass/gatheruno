@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import { connect } from "react-redux";
 import { requestUser } from "../../ducks/userReducer";
 import { getSingleGroup } from "../../ducks/personReducer";
-import BeePiecesWing from '/Users/j-mac/devMountain/gather/src/BeePiecesWing.png'
+import BeePiecesWing from '../BeePiecesWing.png'
 
 
 const GroupPeople =(props)=>{

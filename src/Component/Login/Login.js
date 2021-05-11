@@ -4,7 +4,7 @@ import React, {Component }from 'react';
 import {connect} from 'react-redux'
 import {requestUser,loginUser} from '../../ducks/userReducer'
 import {getAllPeople,getBirthday} from '../../ducks/personReducer'
-import BeeWithLine from '/Users/j-mac/devMountain/gather/src/Gather_Line_with_Bee.png'
+import BeeWithLine from '../Gather_Line_with_Bee.png'
 import './Login.css'
 
 
