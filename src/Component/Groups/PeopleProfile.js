@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import {Post} from '../Profile/Post'
+import Post from '../Profile/Post'
 import '../Profile/Profile.css'
 import {connect} from 'react-redux'
 import {requestUser,requestProfile} from '../../ducks/userReducer'
@@ -13,7 +13,7 @@ const PeopleProfile =(props)=>{
         axios.get(`/api/people/${person_id}`).then(res =>{
             setPerson(res.data)
         }).catch(err=>console.log(err))
-    },[])
+    },[person_id])
 
 console.log(props)
 console.log(person)
@@ -41,7 +41,7 @@ let mappedPosts = person.map((post, i) => {
 </div>
     <p id='messageParagraph'>{person[0].message}</p>
 </section>
-
+{mappedPosts}
 </div>        
         )
     

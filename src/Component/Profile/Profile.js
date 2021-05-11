@@ -7,18 +7,19 @@ import {useHistory} from 'react-router-dom'
 
 const Profile =(props)=>{
 let history = useHistory()
+const{email}=props.userReducer.user
+const {requestProfile} =props
+const {isLoggedIn}=props.userReducer
 
 useEffect(()=>{
+    requestProfile(email)
+},[requestProfile,email])
 
-    const{email}=props.userReducer.user
-         props.requestProfile(email)
-     if(!props.userReducer.isLoggedIn){
-        history.push('/')
-        }
-     
-        console.log(props)
-},[])
-
+useEffect(()=>{
+if(!isLoggedIn){
+    history.push('/')
+    }
+},[isLoggedIn,history])
 
 let mappedPosts = props.userReducer.profile.map((post, i) => {
     return(
