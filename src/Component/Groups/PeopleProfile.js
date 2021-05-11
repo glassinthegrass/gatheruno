@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-
+import {Post} from '../Profile/Post'
 import '../Profile/Profile.css'
 import {connect} from 'react-redux'
 import {requestUser,requestProfile} from '../../ducks/userReducer'
@@ -18,11 +18,11 @@ const PeopleProfile =(props)=>{
 console.log(props)
 console.log(person)
 
-// let mappedPosts = person.map((post, i) => {
-//     return(
-//     <Post id='postComponent'key={i} post={post} />
-//   )
-// })
+let mappedPosts = person.map((post, i) => {
+    return(
+    <Post id='postComponent'key={i} post={post} />
+  )
+})
 
 
         return(
