@@ -42,7 +42,6 @@ let mappedpeople= people.map((person, i) => {
       <div onClick={() => handleAdd(group_name)} id="group">
         <div onClick={()=>handleDelete(group_name)} id='deleteGroup'>x</div>
         {mappedpeople}
-        
       </div>
 
     );

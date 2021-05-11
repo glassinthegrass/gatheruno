@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { requestUser, logoutUser } from "../../ducks/userReducer";
+import { logoutUser } from "../../ducks/userReducer";
 import { Link, useHistory } from "react-router-dom";
 import bee from "../Login/BeeLogoFull.png";
 import "./header.css";
@@ -9,7 +9,7 @@ const Header = (props) => {
   const handleLogout = () => {
     props.logoutUser();
   };
-console.log(props)
+
   let history = useHistory();
 
   const handleClick = () => {
@@ -18,7 +18,7 @@ console.log(props)
 useEffect(()=>{
   if(!props.userReducer.user){
     history.push("/")
-  }},[])
+  }},[props.userReducer.user,history])
   const { userReducer } = props;
   return (
     
@@ -67,4 +67,4 @@ useEffect(()=>{
 const mapStateToProps = (reduxState) => {
   return reduxState;
 };
-export default connect(mapStateToProps, { logoutUser, requestUser })(Header);
+export default connect(mapStateToProps, { logoutUser})(Header);

@@ -42,9 +42,9 @@ module.exports = {
 
     getPerson: (req,res) => {
         const db = req.app.get('db');
-        const {id} =req.params
+        const {person_id} =req.params
 
-        db.get_person(id)
+        db.get_person(person_id)
         .then(dbRes => {
             res.status(200).send(dbRes)
         }).catch(err => console.log(err))
