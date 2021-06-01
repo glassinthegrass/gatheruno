@@ -9,12 +9,17 @@ const initialState = {
 const GET_ALL_PEOPLE = "GET_ALL_People";
 const GET_SINGLE_GROUP = "GET_SINGLE_GROUP";
 const GET_BIRTHDAYS = "GET_BIRTHDAYS";
-
+const LOGOUT = "LOGOUT";
+export const logout =()=>{
+  return {
+    type:LOGOUT
+  }
+}
 export const getAllPeople = () => {
-  let data = axios.get("/api/people").then((res) => res.data);
+  let people = axios.get("/api/people").then((res) => res.data);
   return {
     type: GET_ALL_PEOPLE,
-    payload: data,
+    payload: people,
   };
 };
 export const getBirthday = () => {
@@ -34,6 +39,10 @@ export const getSingleGroup = (group_name) => {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case LOGOUT:
+      return {
+...initialState
+      };
     case GET_ALL_PEOPLE + "_FULFILLED":
       return {
         ...state,

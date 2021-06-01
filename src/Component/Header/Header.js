@@ -1,32 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../../ducks/userReducer";
+import { logout } from "../../ducks/personReducer";
 import { Link, useHistory } from "react-router-dom";
 import bee from "../Login/BeeLogoFull.png";
 import "./header.css";
 
 const Header = (props) => {
-  const handleLogout = () => {
-    props.logoutUser();
-  };
+  const history = useHistory(),
+        { push,goBack,goForward } = history;
+  const { userReducer,logoutUser,logout } = props,
+        {user} = userReducer;
+  
+  const handleLogout = useCallback(()=>{
+logout()
+logoutUser()
+  },[logout,logoutUser])
 
-  let history = useHistory();
 
-  const handleClick = () => {
-    history.push("/");
-  };
+  const handleClick = useCallback(()=>{
+    push("/");
+  },[push])
+
+
 useEffect(()=>{
-  if(!props.userReducer.user){
-    history.push("/")
-  }},[props.userReducer.user,history])
-  const { userReducer } = props;
+  if(!user){
+    push("/")
+  }},[user,push])
   return (
     
     <header id="header">
+
       <div>
         <img onClick={handleClick} src={bee} alt="logo" id="homeIcon" />
-        {userReducer.user ? (
-          <h2 id="greeting">{`Hi ${userReducer.user.first_name}!`}</h2>
+        {user?.isLoggedIn ? (
+          <h2 id="greeting">{`Hi ${user?.first_name}!`}</h2>
         ) : (
 <></>
         )}
@@ -56,8 +64,8 @@ useEffect(()=>{
           </h2>
         </div>
         <nav id="backandforth">
-          <div onClick={()=>history.goBack()} className="arrow-left"></div>
-          <div onClick={()=>history.goForward()} className="arrow-right"></div>
+          <div onClick={()=>goBack()} className="arrow-left"></div>
+          <div onClick={()=>goForward()} className="arrow-right"></div>
         </nav>
       </section>
     </header>
@@ -67,4 +75,4 @@ useEffect(()=>{
 const mapStateToProps = (reduxState) => {
   return reduxState;
 };
-export default connect(mapStateToProps, { logoutUser})(Header);
+export default connect(mapStateToProps, { logoutUser,logout})(Header);

@@ -46,10 +46,10 @@ export const requestProfile = (email) => {
 }
 
 export const logoutUser=() => {
-  let logout = axios.delete('/auth/logout').then(res => res.data).catch(err=>console.log(err))
+ axios.delete('/auth/logout').then(res => res.data).catch(err=>console.log(err))
     return {
         type: LOGOUT_USER,
-        payload: logout
+        payload: []
     }
 }
 
@@ -95,16 +95,9 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state
             }
-        case LOGOUT_USER + '_FULFILLED':
+        case LOGOUT_USER:
             return {
-                ...state,
-            user:action.payload,
-            isLoggedIn:false
-         }
-        case LOGOUT_USER + '_PENDING':
-            return {
-                ...state,
-                isLoggedIn:false
+        ...initialState
          }
         default: return state;
     }

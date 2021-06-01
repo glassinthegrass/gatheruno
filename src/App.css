@@ -1,11 +1,13 @@
+
 body{
     width: 100vw;
 
     font-family:'Nunito Regular', 'Nunito SemiBold', 'Nunito Light', 'Nunito Bold Italic';
+        background-image: url('./Component/Gather_honeycombs.png');
+        background-color: #cccccc;
 
 }
 
-.App{
-
-
+#beePlease{
+    background-image: url('./Component/Gather_Line_with_Bee.png');
 }

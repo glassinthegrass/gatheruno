@@ -9,12 +9,6 @@ const {post} = props
 
 const [ toggle,setToggle]=useState(false)
 
-useEffect(()=>{
-
-},[])
-
-
-
 const handleDelete =(post_id)=>{
     axios.delete(`/api/posts/${post_id}`).then(res=>console.log(res.data)).catch(err=>console.log(err))
 setToggle(!toggle)

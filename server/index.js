@@ -3,13 +3,12 @@ const express = require("express");
 const app = express();
 const massive = require("massive");
 const session = require("express-session");
-const path =require('path')
+const path = require("path");
 const peopleCtrl = require("./controllers/peopleCtrl");
 const birthdayCtrl = require("./controllers/birthdayCtrl");
 const groupCtrl = require("./controllers/groupCtrl");
 const postCtrl = require("./controllers/postCtrl");
 const authCtrl = require("./controllers/authCtrl");
-const authenticateUser = require("./middleware/authenticateUser");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -51,7 +50,7 @@ app.delete("/api/posts/:post_id", postCtrl.deletePost);
 
 //COOKIES/auth
 app.get("/auth/user", authCtrl.getUser);
-app.post("/api/register", authenticateUser.register);
+app.post("/auth/register", authCtrl.register);
 app.post("/auth/login", authCtrl.login);
 app.delete("/auth/logout", authCtrl.logout);
 app.get("/auth/profile/:email", authCtrl.getProfile);
@@ -61,12 +60,11 @@ app.get("/api/birthday", birthdayCtrl.getBirthday);
 app.post("/api/email", birthdayCtrl.sendEmail);
 app.post("/api/birthday-email", birthdayCtrl.sendEmail);
 
+app.use(express.static(__dirname + "/../build"));
 
-app.use(express.static(__dirname + '/../build'));
-
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'))
-})
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 massive({
   connectionString: CONNECTION_STRING,
   ssl: {
@@ -76,7 +74,9 @@ massive({
   .then((dbInstance) => {
     app.set("db", dbInstance);
     app.listen(SERVER_PORT, () =>
-      console.log(`Now you're cooking with GAS down here in  Server Port ${SERVER_PORT}`)
+      console.log(
+        `Now you're cooking with GAS down here in Server Port ${SERVER_PORT}`
+      )
     );
   })
   .catch((err) => console.log(err));
