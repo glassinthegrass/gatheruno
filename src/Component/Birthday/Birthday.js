@@ -9,16 +9,18 @@ import beewithline from '../Gather_Line_with_Bee.png'
 
 
 const Birthday=(props)=>{
-let history = useHistory()
+let push = useHistory().push
+const {getBirthday}=props
+const {isLoggedIn}=props.userReducer
+useEffect(()=>{
+    if(!isLoggedIn){
+        push('/')
+        }
+},[isLoggedIn,push])
 
 useEffect(()=>{
-    props.getBirthday()
-
-    if(!props.userReducer.isLoggedIn){
-        history.push('/')
-        }
-},[])
-
+    getBirthday()
+},[getBirthday])
 const {birthdays}= props.personReducer
 
 let mappedBirthday = birthdays.map((birthday, i) => {

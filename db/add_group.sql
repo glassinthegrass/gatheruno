@@ -1,5 +1,6 @@
-INSERT INTO groups(group_name) VALUES
-($1);
+INSERT INTO groups(group_name) 
+VALUES ($1)
+returning *;
 
 
 -- INSERT INTO groups(group_name,person_id) VALUES

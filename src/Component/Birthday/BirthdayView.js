@@ -12,27 +12,32 @@ const [postContent,setPostContent]= useState('')
 const [postUrl,setPostUrl]= useState('')
 const [posts,setPosts]= useState([])
 const [toggle,setToggle]=useState(false)
-
+const {requestUser}=props,
+        {person_id} = props.birthday;
 useEffect(()=>{
-    const{person_id} = props.birthday
+  
 axios.get(`/api/posts/${person_id}`).then(res =>{
     setPosts(res.data)
 }).catch(err=>console.log(err))
-props.requestUser()
-
-},[toggle]);
+},[person_id]);
+useEffect(()=>{
+    requestUser()
+},[requestUser])
 
 const handleClick=(name,email,post_content,post_url,user_id,person_id)=>{
-    axios.post('/api/posts',{post_content,post_url,user_id,person_id}).then(res=>console.log(res.data)).catch(err=>console.log(err))
+    axios.post('/api/posts',{post_content,post_url,user_id,person_id}).then(res=>{
+        setPosts(...posts,res.data)
+    }).catch(err=>console.log(err))
 axios.post('/api/email',{name,email,post_content}).then(res=>console.log(res.data)).catch(err =>console.log(err))
 setToggle(!toggle)
 }
+
 let mappedPosts = posts.map((post, i) => {
     return(
     <PostView id='PostViewComponent'key={i} post={post} render={()=> <PostView/>}/>
   )
 })
-console.log(props)
+
 return(
 
         <div id='bday'>
